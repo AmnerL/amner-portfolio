@@ -1,0 +1,149 @@
+---
+/**
+ * About.astro
+ * Sección "Sobre Mí": monograma con borde gradiente + bio + 3 highlights.
+ * - Sin foto → monograma "AL" como avatar (decorativo, aria-hidden).
+ * - Bio con <strong> para guiar la lectura (jerarquía visual).
+ * - 3 highlights como <ul> semántico con borde-izq de acento.
+ */
+import SectionHeading from "./SectionHeading.astro";
+import { Server, BrainCircuit, Landmark } from "@lucide/astro";
+
+const highlights = [
+    {
+        Icon: Server,
+        title: "Backend de alta concurrencia",
+        desc: "Java, Spring Boot, microservicios y arquitectura hexagonal.",
+    },
+    {
+        Icon: BrainCircuit,
+        title: "IA Generativa & RAG",
+        desc: "Pipelines RAG, embeddings, agentes conversacionales y LLMs.",
+    },
+    {
+        Icon: Landmark,
+        title: "Fintech & Compliance",
+        desc: "Automatización de cumplimiento normativo con IA aplicada.",
+    },
+];
+---
+
+<section
+    id="about"
+    aria-labelledby="about-title"
+    class="scroll-mt-20 px-5 py-16 md:px-8 md:py-24"
+>
+    <div class="mx-auto max-w-6xl">
+        <!-- Encabezado -->
+        <div data-reveal>
+            <SectionHeading id="about-title" title="Sobre Mí" />
+        </div>
+
+        <!-- Bloque: monograma + bio -->
+        <div
+            class="mt-10 grid grid-cols-1 items-center gap-10 lg:mt-14 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-14"
+        >
+            <!-- ── Monograma / Avatar (decorativo) ── -->
+            <div
+                data-reveal
+                style="--reveal-delay: 100ms"
+                class="flex justify-center lg:justify-start"
+                aria-hidden="true"
+            >
+                <div class="relative">
+                    <!-- Glow detrás -->
+                    <div
+                        class="absolute -inset-4 rounded-[28px] bg-accent/20 blur-2xl"
+                    >
+                    </div>
+
+                    <!-- Borde gradiente (wrapper con padding) -->
+                    <div
+                        class="relative w-44 rounded-2xl bg-gradient-to-br from-accent to-info p-[2px] sm:w-56 lg:w-72"
+                    >
+                        <!-- Interior -->
+                        <div
+                            class="relative grid aspect-square place-items-center overflow-hidden rounded-2xl bg-bg-surface"
+                        >
+                            <!-- Grid de puntos interno (coherencia con hero) -->
+                            <div
+                                class="absolute inset-0 opacity-[0.12]"
+                                style="background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px); background-size: 22px 22px;"
+                            >
+                            </div>
+                            <!-- Letras -->
+                            <span
+                                class="relative bg-gradient-to-br from-accent to-info bg-clip-text font-heading text-6xl font-bold tracking-tight text-transparent sm:text-7xl lg:text-8xl"
+                            >
+                                AL
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Bio ── -->
+            <div
+                data-reveal
+                style="--reveal-delay: 200ms"
+                class="space-y-5 text-base leading-[1.7] text-text-secondary md:text-lg"
+            >
+                <p>
+                    Soy un Ingeniero de Software en formación con un {" "}
+                    <strong class="font-medium text-text-primary"
+                        >enfoque dual</strong
+                    >: desarrollo Backend de alta concurrencia e integración de
+                    Inteligencia Artificial Generativa. Mi experiencia de 10
+                    meses como Trainee de Desarrollo en CIVA me enseñó que el
+                    código de calidad no solo debe ser eficiente, sino también{
+                        " "
+                    }
+                    <strong class="font-medium text-text-primary"
+                        >seguro, mantenible y centrado en el usuario final</strong
+                    >.
+                </p>
+                <p>
+                    Me apasiona aplicar la IA para automatizar procesos
+                    complejos y resolver problemas del sector Fintech, y lo
+                    demuestro en mi proyecto personal,{" "}
+                    <strong class="font-medium text-text-primary"
+                        >Compliance Hub</strong
+                    >, una plataforma empresarial full-stack con un asistente de
+                    IA basado en RAG. Busco activamente oportunidades donde
+                    pueda seguir aprendiendo y contribuir a la transformación
+                    digital del sector financiero.
+                </p>
+            </div>
+        </div>
+
+        <!-- ── Highlights: los 3 pilares ── -->
+        <ul
+            role="list"
+            class="mt-12 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-3 md:gap-5"
+        >
+            {
+                highlights.map(({ Icon, title, desc }, i) => (
+                    <li
+                        data-reveal
+                        style={`--reveal-delay: ${300 + i * 100}ms`}
+                        class="group rounded-xl border border-border-subtle border-l-2 border-l-accent/40 bg-bg-surface p-5 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-border-hover hover:border-l-accent hover:shadow-[0_4px_12px_rgba(0,0,0,0.5),0_0_20px_rgba(123,108,246,0.08)]"
+                    >
+                        <span class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-accent-subtle text-accent transition-colors duration-300 group-hover:text-accent-hover">
+                            <Icon
+                                size={22}
+                                stroke-width={1.5}
+                                aria-hidden="true"
+                            />
+                        </span>
+                        <h3 class="font-heading text-lg font-semibold text-text-primary">
+                            {title}
+                        </h3>
+                        <p class="mt-1.5 text-sm leading-relaxed text-text-secondary">
+                            {desc}
+                        </p>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</section>
