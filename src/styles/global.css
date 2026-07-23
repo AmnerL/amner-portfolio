@@ -1,0 +1,264 @@
+@import "tailwindcss";
+
+@theme {
+    /* Fondos */
+    --color-bg-base: #09090F;
+    --color-bg-surface: #111118;
+    --color-bg-raised: #1A1A24;
+    --color-bg-elevated: #22222E;
+
+    /* Textos */
+    --color-text-primary: #ECECF1;
+    --color-text-secondary: #A1A1B5;
+    --color-text-tertiary: #7C7C92;
+
+    /* Acento */
+    --color-accent: #7B6CF6;
+    --color-accent-hover: #9187F8;
+    --color-accent-subtle: rgba(123, 108, 246, 0.12);
+    --color-accent-glow: rgba(123, 108, 246, 0.25);
+
+    /* Estados */
+    --color-success: #34D399;
+    --color-error: #F87171;
+    --color-warning: #FBBF24;
+    --color-info: #38BDF8;
+
+    /* Bordes */
+    --color-border-subtle: rgba(255, 255, 255, 0.06);
+    --color-border-default: rgba(255, 255, 255, 0.10);
+    --color-border-hover: rgba(255, 255, 255, 0.18);
+
+    /* Tipografía */
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Animaciones */
+    --animate-fade-up: fade-up 0.6s ease-out both;
+    --animate-blink: blink 1s step-end infinite;
+    --animate-scroll-line: scroll-line 2s ease-in-out infinite;
+}
+
+/* ── Keyframes ── */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes scroll-line {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    40% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+
+    60% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+}
+
+/* ── Base ── */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* compensa navbar fijo */
+}
+
+body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Accesibilidad: focus-visible global ── */
+*:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ── Selección de texto ── */
+::selection {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-text-primary);
+}
+
+/* ── Scrollbar sutil (WebKit) ── */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-bg-raised);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-bg-elevated);
+}
+
+/* ── Reveal on scroll (usado por todas las secciones) ── */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ── Accesibilidad: respeta "reducir movimiento" (WCAG 2.3.3 / 2.2.2) ── */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Deja todo en su estado final VISIBLE (no oculto) */
+    [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .animate-fade-up {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .animate-blink {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    .animate-scroll-line {
+        animation: none !important;
+        transform: scaleY(1) !important;
+    }
+
+    .timeline-line {
+        transform: none !important;
+    }
+
+    .timeline-node {
+        border-color: var(--color-accent) !important;
+        color: var(--color-accent) !important;
+        background-color: var(--color-accent-subtle) !important;
+        box-shadow: 0 0 16px var(--color-accent-glow) !important;
+    }
+}
+
+/* ── Pipeline diagram: construcción escalonada al entrar en viewport ── */
+.pipe-node {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    transition-delay: calc(var(--i, 0) * 90ms + 150ms);
+}
+
+[data-reveal].is-visible .pipe-node {
+    opacity: 1;
+    transform: none;
+}
+
+/* Conector: se dibuja (vertical en móvil, horizontal en desktop) */
+.pipe-line {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s ease-out;
+    transition-delay: calc(var(--i, 0) * 90ms + 250ms);
+}
+
+[data-reveal].is-visible .pipe-line {
+    transform: scaleY(1);
+}
+
+@media (min-width: 1024px) {
+    .pipe-line {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    [data-reveal].is-visible .pipe-line {
+        transform: scaleX(1);
+    }
+}
+
+/* ── Timeline: tramo de línea se dibuja + nodo se enciende al revelar ── */
+.timeline-line {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.6s ease-out;
+    transition-delay: 200ms;
+}
+
+[data-reveal].is-visible .timeline-line {
+    transform: scaleY(1);
+}
+
+.timeline-node {
+    border-color: var(--color-border-default);
+    color: var(--color-text-tertiary);
+    background-color: var(--color-bg-surface);
+    box-shadow: none;
+    transition:
+        border-color 0.5s ease,
+        color 0.5s ease,
+        background-color 0.5s ease,
+        box-shadow 0.5s ease;
+    transition-delay: 250ms;
+}
+
+[data-reveal].is-visible .timeline-node {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: var(--color-accent-subtle);
+    box-shadow: 0 0 16px var(--color-accent-glow);
+}
