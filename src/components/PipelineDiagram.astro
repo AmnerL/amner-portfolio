@@ -1,0 +1,64 @@
+---
+/**
+ * PipelineDiagram.astro
+ * Diagrama de flujo: nodos circulares (icono Lucide) + label + conectores
+ * con gradiente de marca. Se "construye" nodo a nodo al entrar en viewport
+ * (depende del .is-visible del <article> padre con data-reveal).
+ *
+ * Accesibilidad: el contenedor es role="img" con aria-label que NARRA el
+ * flujo; los nodos/líneas son aria-hidden (decorativos bajo esa narración).
+ *
+ * Props:
+ *  - label: narración textual del flujo (para lectores de pantalla).
+ *  - steps: [{ Icon, label }]  (Icon = componente Lucide, 4-6 pasos ideal).
+ */
+type IconComponent = typeof import('@lucide/astro').Server;
+
+interface Step {
+  Icon: IconComponent;
+  label: string;
+}
+interface Props {
+  label: string;
+  steps: Step[];
+}
+
+const { label, steps } = Astro.props;
+---
+
+<div
+  role="img"
+  aria-label={label}
+  class="rounded-xl border border-border-subtle bg-bg-base/60 p-5 md:p-6"
+>
+  <div class="flex flex-col items-stretch gap-0 lg:flex-row lg:items-start lg:justify-between">
+    {steps.map(({ Icon, label: stepLabel }, i) => (
+      <>
+        <!-- ── Nodo ── -->
+        <div
+          class="pipe-node group flex shrink-0 flex-col items-center gap-2 text-center lg:w-20"
+          style={`--i: ${i}`}
+          aria-hidden="true"
+        >
+          <span
+            class="flex h-12 w-12 items-center justify-center rounded-full border border-border-default bg-bg-surface text-accent transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-accent group-hover:text-accent-hover group-hover:shadow-[0_0_16px_var(--color-accent-glow)] md:h-14 md:w-14"
+          >
+            <Icon size={22} stroke-width={1.5} />
+          </span>
+          <span class="text-xs font-medium leading-tight text-text-secondary">
+            {stepLabel}
+          </span>
+        </div>
+
+        <!-- ── Conector (no se pinta tras el último nodo) ── -->
+        {i < steps.length - 1 && (
+          <div
+            class="pipe-line mx-auto my-2 h-6 w-px bg-gradient-to-b from-accent/50 to-info/50 lg:my-7 lg:h-px lg:w-full lg:bg-gradient-to-r"
+            style={`--i: ${i}`}
+            aria-hidden="true"
+          ></div>
+        )}
+      </>
+    ))}
+  </div>
+</div>

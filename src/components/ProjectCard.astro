@@ -1,0 +1,173 @@
+---
+/**
+ * ProjectCard.astro
+ * Tarjeta de proyecto con layout CONSISTENTE (la jerarquía la da el badge
+ * "Destacado" + una línea de gradiente superior, no dos layouts distintos).
+ * Recibe toda la data y renderiza: badges → título → desc → pipeline →
+ * contribuciones → stack (chips) → enlaces.
+ */
+type IconComponent = typeof import("@lucide/astro").Server;
+import PipelineDiagram from "./PipelineDiagram.astro";
+import TechChip from "./TechChip.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import { Check, ExternalLink } from "@lucide/astro";
+
+interface Step {
+    Icon: IconComponent;
+    label: string;
+}
+interface Link {
+    label: string;
+    href: string;
+}
+interface Tech {
+    label: string;
+    slugs?: string | string[];
+    noIcon?: boolean;
+    dotColor?: string;
+}
+
+interface Props {
+    id: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    badges: string[];
+    featured?: boolean;
+    pipeline: { label: string; steps: Step[] };
+    contributions: string[];
+    techs: Tech[];
+    links?: Link[];
+}
+
+const {
+    id,
+    title,
+    subtitle,
+    description,
+    badges,
+    featured = false,
+    pipeline,
+    contributions,
+    techs,
+    links = [],
+} = Astro.props;
+---
+
+<article
+    data-reveal
+    aria-labelledby={`${id}-title`}
+    class:list={[
+        "group relative overflow-hidden rounded-2xl border bg-bg-surface p-6 transition-all duration-300 ease-in-out md:p-8",
+        "hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.5),0_0_24px_rgba(123,108,246,0.08)]",
+        featured
+            ? "border-accent/30 hover:border-accent/50"
+            : "border-border-subtle hover:border-border-hover",
+    ]}
+>
+    <!-- Línea de gradiente superior (solo destacado) -->
+    {
+        featured && (
+            <span
+                class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent to-info"
+                aria-hidden="true"
+            />
+        )
+    }
+
+    <!-- Badges -->
+    <div class="flex flex-wrap gap-2">
+        {
+            badges.map((b, i) => (
+                <span
+                    class:list={[
+                        "inline-flex items-center rounded-md px-2.5 py-1 text-xs font-semibold",
+                        featured && i === 0
+                            ? "bg-gradient-to-r from-accent to-info text-bg-base"
+                            : "bg-accent-subtle text-accent",
+                    ]}
+                >
+                    {b}
+                </span>
+            ))
+        }
+    </div>
+
+    <!-- Título + subtítulo -->
+    <h3
+        id={`${id}-title`}
+        class="mt-4 font-heading text-2xl font-semibold tracking-tight text-text-primary md:text-[1.75rem]"
+    >
+        {title}
+    </h3>
+    <p class="mt-1 text-sm font-medium text-accent">{subtitle}</p>
+
+    <!-- Descripción -->
+    <p class="mt-4 max-w-3xl text-base leading-[1.7] text-text-secondary">
+        {description}
+    </p>
+
+    <!-- Pipeline / Arquitectura visual -->
+    <div class="mt-6">
+        <PipelineDiagram label={pipeline.label} steps={pipeline.steps} />
+    </div>
+
+    <!-- Contribuciones clave -->
+    <ul role="list" class="mt-6 space-y-2.5">
+        {
+            contributions.map((c) => (
+                <li class="flex items-start gap-3 text-[0.95rem] leading-relaxed text-text-secondary">
+                    <Check
+                        size={18}
+                        stroke-width={2}
+                        class="mt-0.5 shrink-0 text-success"
+                        aria-hidden="true"
+                    />
+                    <span>{c}</span>
+                </li>
+            ))
+        }
+    </ul>
+
+    <!-- Stack (chips) -->
+    <ul role="list" class="mt-6 flex flex-wrap gap-2">
+        {
+            techs.map((t) => (
+                <TechChip
+                    label={t.label}
+                    slugs={t.slugs}
+                    noIcon={t.noIcon}
+                    dotColor={t.dotColor}
+                />
+            ))
+        }
+    </ul>
+
+    <!-- Enlaces (solo si existen) -->
+    {
+        links.length > 0 && (
+            <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+                {links.map((l) => (
+                    <a
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group/btn inline-flex items-center justify-center gap-2 rounded-lg border border-border-default px-5 py-2.5 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:border-border-hover hover:bg-bg-raised"
+                    >
+                        <GithubIcon
+                            size={16}
+                            class="transition-transform duration-300 group-hover/btn:scale-110"
+                        />
+                        {l.label}
+                        <ExternalLink
+                            size={14}
+                            stroke-width={1.5}
+                            aria-hidden="true"
+                            class="opacity-60"
+                        />
+                    </a>
+                ))}
+            </div>
+        )
+    }
+</article>
