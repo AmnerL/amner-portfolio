@@ -1,66 +1,48 @@
 ---
 /**
  * Projects.astro
- * Sección de proyectos. Toda la data vive aquí (contenido estático).
- * Los iconos del pipeline son Lucide (conceptuales); los logos del stack
- * vienen de simple-icons vía TechChip.
+ * Projects section in "ledger" format (technical log).
+ * No cards, no glow, no heavy hover.
+ * Hierarchy is given by the numeric index and information density.
  */
-import SectionHeading from "./SectionHeading.astro";
-import ProjectCard from "./ProjectCard.astro";
-import {
-    FileText,
-    Scissors,
-    Sparkles,
-    Database,
-    Bot,
-    BadgeCheck,
-    User,
-    BrainCircuit,
-    Wrench,
-    Radio,
-    Boxes,
-    MessageSquare,
-} from "@lucide/astro";
+import ProjectCase from "./ProjectCase.astro";
 
 const projects = [
     {
         id: "compliance-hub",
-        featured: true,
-        badges: ["Proyecto Destacado", "Full-Stack"],
+        index: "01",
         title: "Compliance Hub",
         subtitle: "Asistente de Cumplimiento Normativo con IA",
         description:
-            "Plataforma empresarial para la gestión de cumplimiento normativo que integra un asistente de inteligencia artificial generativa. El asistente utiliza un pipeline RAG (Retrieval-Augmented Generation) para responder preguntas en lenguaje natural sobre documentos legales, citando las fuentes exactas.",
+            "Plataforma empresarial para la gestión de cumplimiento normativo que integra un asistente de IA generativa. El asistente utiliza un pipeline RAG para responder preguntas en lenguaje natural sobre documentos legales, citando las fuentes exactas.",
         pipeline: {
-            label: "Pipeline RAG: los documentos PDF se dividen en fragmentos, se generan embeddings con Gemini, se almacenan en pgvector y el LLM de Gemini responde en lenguaje natural citando las fuentes.",
+            label: "Pipeline RAG",
             steps: [
-                { Icon: FileText, label: "PDFs" },
-                { Icon: Scissors, label: "Chunking" },
-                { Icon: Sparkles, label: "Embeddings" },
-                { Icon: Database, label: "pgvector" },
-                { Icon: Bot, label: "Gemini LLM" },
-                { Icon: BadgeCheck, label: "Respuesta" },
+                "Ingesta de PDFs → Chunking",
+                "Embeddings con Gemini",
+                "Almacenamiento vectorial en pgvector",
+                "Consulta al LLM → Respuesta con fuentes",
             ],
         },
         contributions: [
-            "Diseñé e implementé el backend con Java 21, Spring Boot 3.5 y Spring AI, aplicando arquitectura hexagonal, DDD y principios SOLID.",
-            "Construí el pipeline RAG completo: ingesta y chunking de PDFs, embeddings con Gemini, almacenamiento vectorial en pgvector y consulta al LLM.",
-            "Desarrollé el frontend con React 19, TypeScript, Redux Toolkit y Tailwind CSS 4.",
-            "Implementé autenticación y autorización con Spring Security y JWT, más gestión documental, checklists, notificaciones, reportes en PDF y panel de auditoría.",
+            "Backend con Java 21, Spring Boot 3.5 y Spring AI. Arquitectura hexagonal, DDD y principios SOLID.",
+            "Pipeline RAG completo: ingesta, chunking, embeddings, pgvector y consulta al LLM.",
+            "Frontend con React 19, TypeScript, Redux Toolkit y Tailwind CSS 4.",
+            "Spring Security + JWT, gestión documental, checklists, notificaciones, reportes PDF y panel de auditoría.",
         ],
         techs: [
-            { label: "Java 21", slugs: ["java"] },
-            { label: "Spring Boot", slugs: ["springboot"] },
-            { label: "Spring AI", noIcon: true },
-            { label: "Gemini", slugs: ["googlegemini"] },
-            { label: "PostgreSQL", slugs: ["postgresql"] },
-            { label: "pgvector", noIcon: true, dotColor: "#336791" },
-            { label: "React 19", slugs: ["react"] },
-            { label: "TypeScript", slugs: ["typescript"] },
-            { label: "Redux Toolkit", slugs: ["redux"] },
-            { label: "Tailwind 4", slugs: ["tailwindcss"] },
-            { label: "Docker", slugs: ["docker"] },
-            { label: "AWS", slugs: ["amazonwebservices", "amazonaws"] },
+            "Java 21",
+            "Spring Boot",
+            "Spring AI",
+            "Gemini",
+            "PostgreSQL",
+            "pgvector",
+            "React 19",
+            "TypeScript",
+            "Redux Toolkit",
+            "Tailwind 4",
+            "Docker",
+            "AWS",
         ],
         links: [
             {
@@ -75,67 +57,62 @@ const projects = [
     },
     {
         id: "ezpark",
-        featured: false,
-        badges: ["Líder de Backend"],
+        index: "02",
         title: "EzPark",
         subtitle: "Plataforma de Estacionamiento P2P",
         description:
-            "Plataforma web para conectar conductores con propietarios de cocheras. Lideré el diseño y desarrollo de la arquitectura de microservicios del backend, incluyendo un agente conversacional con IA que permite consultar disponibilidad y ejecutar acciones en lenguaje natural.",
+            "Plataforma web para conectar conductores con propietarios de cocheras. Lideré el diseño de la arquitectura de microservicios del backend, incluyendo un agente conversacional con IA que permite consultar disponibilidad y ejecutar acciones en lenguaje natural.",
         pipeline: {
-            label: "Arquitectura: el usuario conversa con un agente ReAct que, mediante tool calling, ejecuta acciones sobre la base de datos; los microservicios se coordinan de forma asíncrona con Apache Kafka.",
+            label: "Arquitectura de Microservicios",
             steps: [
-                { Icon: User, label: "Usuario" },
-                { Icon: BrainCircuit, label: "Agente ReAct" },
-                { Icon: Wrench, label: "Tool Calling" },
-                { Icon: Radio, label: "Kafka" },
-                { Icon: Boxes, label: "Microservicios" },
-                { Icon: MessageSquare, label: "Respuesta" },
+                "Usuario → Agente ReAct (Gemini + LangChain4j)",
+                "Tool Calling → Ejecuta acciones sobre la BD",
+                "Apache Kafka → Comunicación asíncrona",
+                "Microservicios → Reservas, pagos, notificaciones",
             ],
         },
         contributions: [
-            "Diseñé la arquitectura completa de microservicios con Java y Spring Boot.",
-            "Implementé un agente conversacional con IA (Gemini + LangChain4j) usando el patrón ReAct y Tool Calling sobre la base de datos.",
-            "Establecí comunicación asíncrona entre servicios con Apache Kafka para reservas y notificaciones en tiempo real.",
-            "Dockericé cada microservicio y desplegué la solución en una instancia AWS EC2.",
+            "Arquitectura completa de microservicios con Java y Spring Boot.",
+            "Agente conversacional con IA (Gemini + LangChain4j) usando patrón ReAct y Tool Calling.",
+            "Comunicación asíncrona con Apache Kafka para reservas y notificaciones en tiempo real.",
+            "Dockerización de cada microservicio y despliegue en AWS EC2 con API Gateway.",
         ],
         techs: [
-            { label: "Java", slugs: ["java"] },
-            { label: "Spring Boot", slugs: ["springboot"] },
-            { label: "Apache Kafka", slugs: ["apachekafka"] },
-            { label: "Gemini", slugs: ["googlegemini"] },
-            { label: "LangChain4j", noIcon: true, dotColor: "#7B6CF6" },
-            { label: "Docker", slugs: ["docker"] },
-            { label: "AWS", slugs: ["amazonwebservices", "amazonaws"] },
+            "Java",
+            "Spring Boot",
+            "Apache Kafka",
+            "Gemini",
+            "LangChain4j",
+            "Docker",
+            "AWS EC2",
+            "PostgreSQL",
         ],
-        links: [], // sin repo público aún
+        links: [],
     },
 ];
 ---
 
-<section
-    id="projects"
-    aria-labelledby="projects-title"
-    class="scroll-mt-20 bg-bg-base px-5 py-16 md:px-8 md:py-24"
->
-    <div class="mx-auto max-w-6xl">
-        <div data-reveal>
-            <SectionHeading
-                id="projects-title"
-                title="Proyectos"
-                subtitle="Soluciones reales, arquitectura real."
-            />
-        </div>
+<section id="projects" class="section-shell" aria-labelledby="projects-title">
+    <div class="site-container">
+        <header class="section-head" data-reveal>
+            <span class="section-kicker">Portafolio</span>
+            <h2 id="projects-title" class="section-title">Proyectos</h2>
+            <p class="section-subtitle">
+                Soluciones reales con arquitectura real. Cada proyecto documenta
+                el pipeline completo, las decisiones técnicas y el stack
+                utilizado.
+            </p>
+        </header>
 
-        <div class="mt-10 space-y-8 md:mt-14 md:space-y-10">
+        <div class="project-ledger">
             {
                 projects.map((p) => (
-                    <ProjectCard
+                    <ProjectCase
                         id={p.id}
+                        index={p.index}
                         title={p.title}
                         subtitle={p.subtitle}
                         description={p.description}
-                        badges={p.badges}
-                        featured={p.featured}
                         pipeline={p.pipeline}
                         contributions={p.contributions}
                         techs={p.techs}

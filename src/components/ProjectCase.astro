@@ -1,0 +1,92 @@
+---
+/**
+ * ProjectCase.astro
+ * Project entry in "ledger" format (technical log).
+ * Asymmetric layout: numeric index on the left, content on the right.
+ * No card, no glow, no hover, no gradients.
+ * The information speaks for itself.
+ */
+interface Props {
+    id: string;
+    index: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    pipeline: { label: string; steps: string[] };
+    contributions: string[];
+    techs: string[];
+    links: { label: string; href: string }[];
+}
+
+const {
+    id,
+    index,
+    title,
+    subtitle,
+    description,
+    pipeline,
+    contributions,
+    techs,
+    links,
+} = Astro.props;
+---
+
+<article class="project-case" aria-labelledby={`${id}-title`}>
+    <!-- Left column: Index -->
+    <div>
+        <span class="project-index">{index}</span>
+    </div>
+
+    <!-- Right column: Content -->
+    <div>
+        <!-- Title + subtitle -->
+        <h3 id={`${id}-title`} class="project-title">{title}</h3>
+        <p class="project-subtitle">{subtitle}</p>
+
+        <!-- Description -->
+        <p class="project-description">{description}</p>
+
+        <!-- Pipeline (vertical, documentation style) -->
+        <div class="pipeline">
+            <p class="pipeline__label">{pipeline.label}</p>
+            <ol class="pipeline__steps">
+                {
+                    pipeline.steps.map((step, i) => (
+                        <li class="pipeline__step">
+                            <span class="pipeline__node">{i + 1}</span>
+                            <span>{step}</span>
+                        </li>
+                    ))
+                }
+            </ol>
+        </div>
+
+        <!-- Key contributions -->
+        <ul class="project-contributions">
+            {contributions.map((c) => <li>{c}</li>)}
+        </ul>
+
+        <!-- Stack (monospaced tags) -->
+        <ul class="project-techs">
+            {techs.map((t) => <li class="tech-tag">{t}</li>)}
+        </ul>
+
+        <!-- Links -->
+        {
+            links.length > 0 && (
+                <div class="project-links">
+                    {links.map((l) => (
+                        <a
+                            href={l.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link"
+                        >
+                            {l.label} ↗
+                        </a>
+                    ))}
+                </div>
+            )
+        }
+    </div>
+</article>

@@ -1,100 +1,105 @@
 ---
 /**
  * Stack.astro
- * Stack técnico agrupado por categoría. Reutiliza TechChip (logos vía
- * simple-icons) y SectionHeading. Cada categoría = card con icono + H3 + chips.
- * El último card (Cloud & DevOps) ocupa 2 columnas para cerrar sin huecos.
- *
- * Nota de slugs: los conceptos sin logo van con noIcon + dotColor semántico.
- * Los "dudosos" llevan slug + dotColor (gana el logo si existe, si no el punto).
+ * Tech stack in "sheet" format (specification sheet).
+ * Layout: rows with category on the left, tags on the right.
+ * No cards, no hover, no glow, no simple-icons icons.
+ * Typography, borders and information density only.
  */
-import SectionHeading from './SectionHeading.astro';
-import TechChip from './TechChip.astro';
 import {
-  Server, BrainCircuit, MonitorSmartphone, Database, Cloud,
-} from '@lucide/astro';
+  Server,
+  BrainCircuit,
+  MonitorSmartphone,
+  Database,
+  Cloud,
+  Wrench,
+} from "@lucide/astro";
 
-// Colores de respaldo (puntos) para conceptos / logos que pudieran no resolver.
-const SPRING = '#6DB33F';
-const POSTGRES = '#336791';
-const REDUX = '#764ABC';
-const ORACLE = '#F80000';
-const ACCENT = '#7B6CF6';
-
-interface Tech {
-  label: string;
-  slugs?: string | string[];
-  noIcon?: boolean;
-  dotColor?: string;
-}
-interface Category {
-  Icon: typeof Server;
-  title: string;
-  techs: Tech[];
-  wide?: boolean; // ocupa 2 columnas (cierre)
-}
-
-const categories: Category[] = [
+const categories = [
   {
     Icon: Server,
-    title: 'Backend & Arquitectura',
+    title: "Backend & Arquitectura",
     techs: [
-      { label: 'Java 21', slugs: ['java'] },
-      { label: 'Spring Boot', slugs: ['springboot'] },
-      { label: 'Spring AI', slugs: ['spring'], dotColor: SPRING },
-      { label: 'Spring Security', slugs: ['springsecurity'], dotColor: SPRING },
-      { label: 'JPA / Hibernate', slugs: ['hibernate'], dotColor: '#59666C' },
-      { label: 'Apache Kafka', slugs: ['apachekafka'] },
-      { label: 'Microservicios', noIcon: true, dotColor: ACCENT },
-      { label: 'Arq. Hexagonal', noIcon: true, dotColor: ACCENT },
-      { label: 'DDD', noIcon: true, dotColor: ACCENT },
+      "Java 17 / 21",
+      "Spring Boot 3.2",
+      "Spring Cloud",
+      "Spring Security",
+      "JPA / Hibernate",
+      "Apache Kafka",
+      "API Gateway",
+      "Maven",
+      "Microservicios",
+      "Arq. Hexagonal",
+      "DDD",
+      "Node.js",
     ],
   },
   {
     Icon: BrainCircuit,
-    title: 'Inteligencia Artificial',
+    title: "IA Generativa",
     techs: [
-      { label: 'Spring AI', slugs: ['spring'], dotColor: SPRING },
-      { label: 'Google Gemini', slugs: ['googlegemini'] },
-      { label: 'LangChain4j', noIcon: true, dotColor: ACCENT },
-      { label: 'RAG', noIcon: true, dotColor: ACCENT },
-      { label: 'Prompt Engineering', noIcon: true, dotColor: ACCENT },
-      { label: 'Agentes Conversacionales', noIcon: true, dotColor: ACCENT },
-    ],
-  },
-  {
-    Icon: MonitorSmartphone,
-    title: 'Frontend',
-    techs: [
-      { label: 'React 19', slugs: ['react'] },
-      { label: 'TypeScript', slugs: ['typescript'] },
-      { label: 'Redux Toolkit', slugs: ['redux'] },
-      { label: 'RTK Query', noIcon: true, dotColor: REDUX },
-      { label: 'Tailwind CSS 4', slugs: ['tailwindcss'] },
-      { label: 'Vite', slugs: ['vite'] },
+      "Spring AI",
+      "LangChain4j",
+      "RAG",
+      "Gemini",
+      "IBM watsonx",
+      "Hugging Face",
+      "Prompt Engineering",
+      "Agentes ReAct",
+      "Tool Calling",
+      "Embeddings",
     ],
   },
   {
     Icon: Database,
-    title: 'Bases de Datos',
+    title: "Bases de Datos",
     techs: [
-      { label: 'PostgreSQL', slugs: ['postgresql'] },
-      { label: 'pgvector', noIcon: true, dotColor: POSTGRES },
-      { label: 'Oracle · PL/SQL', slugs: ['oracle'] },
-      { label: 'MySQL', slugs: ['mysql'] },
-      { label: 'MongoDB', slugs: ['mongodb'] },
+      "PostgreSQL",
+      "pgvector",
+      "Oracle · PL/SQL",
+      "SQL Server",
+      "MySQL",
+      "MongoDB",
+      "Data Warehouse",
     ],
   },
   {
     Icon: Cloud,
-    title: 'Cloud & DevOps',
-    wide: true,
+    title: "Cloud & DevOps",
     techs: [
-      { label: 'AWS · EC2 · S3', slugs: ['amazonwebservices', 'amazonaws'] },
-      { label: 'Docker', slugs: ['docker'] },
-      { label: 'Git · GitHub', slugs: ['git'] },
-      { label: 'Linux', slugs: ['linux'] },
-      { label: 'Jenkins (CI/CD)', slugs: ['jenkins'] },
+      "AWS · EC2 · S3",
+      "Docker",
+      "Git · GitHub",
+      "Linux · Red Hat",
+      "Jenkins · CI/CD",
+      "JUnit 5",
+      "Mockito",
+      "Postman",
+    ],
+  },
+  {
+    Icon: MonitorSmartphone,
+    title: "Frontend",
+    techs: [
+      "React 18 / 19",
+      "TypeScript",
+      "Redux Toolkit",
+      "Tailwind CSS 4",
+      "Angular 11+",
+      "Astro",
+      "Vite",
+    ],
+  },
+  {
+    Icon: Wrench,
+    title: "Herramientas & Métodos",
+    techs: [
+      "Scrum",
+      "Jira",
+      "Swagger / OpenAPI",
+      "Thymeleaf",
+      "Bitbucket",
+      "Trello",
     ],
   },
 ];
@@ -102,56 +107,40 @@ const categories: Category[] = [
 
 <section
   id="stack"
+  class="section-shell section-shell--raised"
   aria-labelledby="stack-title"
-  class="scroll-mt-20 bg-bg-surface/40 px-5 py-16 md:px-8 md:py-24"
 >
-  <div class="mx-auto max-w-6xl">
-    <div data-reveal>
-      <SectionHeading
-        id="stack-title"
-        title="Stack Técnico"
-        subtitle="Las herramientas con las que construyo sistemas robustos e inteligentes."
-      />
-    </div>
+  <div class="site-container">
+    <header class="section-head" data-reveal>
+      <span class="section-kicker">Tecnologías</span>
+      <h2 id="stack-title" class="section-title">Stack Técnico</h2>
+      <p class="section-subtitle">
+        Herramientas con las que construyo sistemas distribuidos, pipelines de
+        IA y aplicaciones empresariales de alta concurrencia.
+      </p>
+    </header>
 
-    <ul
-      role="list"
-      class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:mt-14 lg:grid-cols-3"
-    >
-      {categories.map(({ Icon, title, techs, wide }, i) => (
-        <li
-          data-reveal
-          style={`--reveal-delay: ${i * 80}ms`}
-          class:list={[
-            'group rounded-2xl border border-border-subtle bg-bg-surface p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-border-hover hover:shadow-[0_4px_12px_rgba(0,0,0,0.5),0_0_20px_rgba(123,108,246,0.08)]',
-            wide ? 'sm:col-span-2 lg:col-span-2' : '',
-          ]}
-        >
-          <!-- Cabecera de categoría -->
-          <div class="mb-5 flex items-center gap-3">
-            <span
-              class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent transition-colors duration-300 group-hover:text-accent-hover"
-            >
-              <Icon size={20} stroke-width={1.5} aria-hidden="true" />
-            </span>
-            <h3 class="font-heading text-lg font-semibold tracking-tight text-text-primary">
-              {title}
-            </h3>
-          </div>
-
-          <!-- Chips de tecnología -->
-          <ul role="list" class="flex flex-wrap gap-2">
-            {techs.map((t) => (
-              <TechChip
-                label={t.label}
-                slugs={t.slugs}
-                noIcon={t.noIcon}
-                dotColor={t.dotColor}
+    <div class="stack-sheet">
+      {
+        categories.map(({ Icon, title, techs }) => (
+          <div class="stack-row">
+            <div class="stack-row__head">
+              <Icon
+                size={18}
+                stroke-width={1.5}
+                class="stack-row__icon"
+                aria-hidden="true"
               />
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
+              <span>{title}</span>
+            </div>
+            <ul class="tech-list">
+              {techs.map((t) => (
+                <li class="tech-tag">{t}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>

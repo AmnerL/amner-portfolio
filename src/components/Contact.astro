@@ -1,41 +1,28 @@
 ---
 /**
  * Contact.astro
- * Sección de cierre / conversión.
- * - CTA primario único: Descargar CV.
- * - Control compuesto de email: mailto + botón "copiar al portapapeles"
- *   con feedback visual y anuncio a lectores de pantalla (aria-live).
- * - Tarjetas de canal: LinkedIn + GitHub (perfil).
- * - Glow radial de fondo que cierra el ciclo visual con el Hero.
- *
- * Accesibilidad del copiado: navigator.clipboard en contexto seguro
- * (https/localhost) con fallback a execCommand; feedback con role="status".
+ * Closing / conversion section.
+ * Original structure preserved: centered panel + email + channels.
+ * Cleanup: no radial glow, no top gradient, no heavy hover effects.
  */
-import SectionHeading from "./SectionHeading.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 import LinkedinIcon from "./icons/LinkedinIcon.astro";
 import { Download, Mail, Copy, Check, ExternalLink } from "@lucide/astro";
 
 const EMAIL = "amnerlevi20@gmail.com";
 
-// Canales sociales de cierre.
-// 👉 Si prefieres enlazar los REPOS en vez del perfil, cambia los href:
-//    GitHub Backend  → https://github.com/AmnerL/compliance-hub
-//    GitHub Frontend → https://github.com/AmnerL/compliance-hub-front
 const channels = [
     {
         label: "LinkedIn",
         handle: "linkedin.com/in/amnerls",
         href: "https://linkedin.com/in/amnerls",
         Icon: LinkedinIcon,
-        hint: "Conectemos",
     },
     {
         label: "GitHub",
         handle: "github.com/AmnerL",
         href: "https://github.com/AmnerL",
         Icon: GithubIcon,
-        hint: "Mi código",
     },
 ];
 ---
@@ -43,157 +30,135 @@ const channels = [
 <section
     id="contact"
     aria-labelledby="contact-title"
-    class="relative scroll-mt-20 overflow-hidden bg-bg-base px-5 py-16 md:px-8 md:py-24"
+    class="section-shell section-shell--dark"
 >
-    <!-- Glow radial de cierre (dialoga con el del Hero) -->
-    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div
-            class="absolute inset-x-0 bottom-0 h-[420px]"
-            style="background: radial-gradient(ellipse 55% 60% at 50% 110%, rgba(123,108,246,0.14) 0%, transparent 70%);"
-        >
-        </div>
-    </div>
-
-    <div class="relative z-10 mx-auto max-w-3xl">
+    <div class="site-container" style="max-width: 42rem;">
         <!-- Panel -->
         <div
             data-reveal
-            class="relative overflow-hidden rounded-3xl border border-border-subtle bg-bg-surface p-8 text-center shadow-[0_8px_30px_rgba(0,0,0,0.5)] md:p-12"
+            class="rounded-[var(--radius-panel)] border border-[var(--color-rule-strong)] bg-[var(--color-paper-raised)] p-8 text-center md:p-12"
         >
-            <!-- Borde superior con gradiente de marca -->
+            <!-- Section header -->
             <span
-                class="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent to-info"
-                aria-hidden="true"></span>
-
-            <!-- Encabezado -->
-            <SectionHeading
+                class="section-kicker"
+                style="display: block; text-align: center;"
+            >
+                Contacto
+            </span>
+            <h2
                 id="contact-title"
-                title="Hablemos"
-                align="center"
-            />
+                class="section-title"
+                style="text-align: center;"
+            >
+                Hablemos
+            </h2>
 
             <p
-                class="mx-auto mt-4 max-w-xl text-base leading-[1.7] text-text-secondary md:text-lg"
+                class="contact-copy"
+                style="margin-inline: auto; margin-top: var(--space-sm); text-align: center;"
             >
-                ¿Buscas un ingeniero que domine el backend, la IA generativa y
-                el sector financiero? Hablemos de cómo{" "}
-                <strong class="font-medium text-text-primary">
-                    puedo aportar a tu equipo</strong
-                >.
+                ¿Buscas un ingeniero que domine el backend de alta concurrencia,
+                la IA generativa y el sector financiero? Hablemos de cómo puedo
+                aportar a tu equipo.
             </p>
 
             <!-- ── CTAs ── -->
             <div
                 class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
             >
-                <!-- CTA primario: Descargar CV -->
-                <a
-                    href="/cv.pdf"
-                    download
-                    class="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-base font-semibold text-bg-base transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-[0_0_24px_var(--color-accent-glow)] sm:w-auto"
-                >
-                    <Download
-                        size={18}
-                        stroke-width={1.5}
-                        aria-hidden="true"
-                        class="transition-transform duration-300 group-hover:translate-y-0.5"
-                    />
+                <!-- Primary CTA: Download CV -->
+                <a href="/cv.pdf" download class="button-primary">
+                    <Download size={16} aria-hidden="true" />
                     Descargar CV
                 </a>
 
-                <!-- Control compuesto: email (mailto) + copiar -->
+                <!-- Compound control: email + copy button -->
                 <div
-                    class="inline-flex w-full overflow-hidden rounded-lg border border-border-default bg-bg-raised sm:w-auto"
+                    class="inline-flex w-full overflow-hidden rounded-[var(--radius-control)] border border-[var(--color-rule-strong)] bg-[var(--color-paper)] sm:w-auto"
                 >
                     <a
                         href={`mailto:${EMAIL}`}
-                        class="flex flex-1 items-center justify-center gap-2 px-5 py-3.5 text-sm text-text-primary transition-colors duration-200 hover:bg-bg-elevated sm:flex-none sm:text-base"
+                        class="flex flex-1 items-center justify-center gap-2 px-5 py-3 text-sm text-[var(--color-ink)] transition-colors duration-200 hover:bg-[var(--color-paper-raised)] sm:flex-none"
                     >
                         <Mail
-                            size={18}
-                            stroke-width={1.5}
+                            size={16}
                             aria-hidden="true"
-                            class="shrink-0 text-accent"
+                            class="shrink-0 text-[var(--color-accent)]"
                         />
-                        <span class="truncate">{EMAIL}</span>
+                        <span class="truncate font-[var(--font-mono)]"
+                            >{EMAIL}</span
+                        >
                     </a>
                     <span
-                        class="w-px self-stretch bg-border-default"
+                        class="w-px self-stretch bg-[var(--color-rule)]"
                         aria-hidden="true"></span>
                     <button
                         id="copy-email"
                         type="button"
                         aria-label="Copiar correo al portapapeles"
-                        class="flex items-center justify-center px-3.5 text-text-secondary transition-colors duration-200 hover:bg-bg-elevated hover:text-text-primary"
+                        class="flex items-center justify-center px-3.5 text-[var(--color-muted)] transition-colors duration-200 hover:bg-[var(--color-paper-raised)] hover:text-[var(--color-ink)]"
                     >
                         <span id="copy-icon" class="flex">
-                            <Copy
-                                size={18}
-                                stroke-width={1.5}
-                                aria-hidden="true"
-                            />
+                            <Copy size={16} aria-hidden="true" />
                         </span>
-                        <span id="check-icon" class="hidden text-success">
-                            <Check
-                                size={18}
-                                stroke-width={2}
-                                aria-hidden="true"
-                            />
+                        <span
+                            id="check-icon"
+                            class="hidden text-[var(--color-success)]"
+                        >
+                            <Check size={16} aria-hidden="true" />
                         </span>
                     </button>
                 </div>
             </div>
 
-            <!-- Feedback del copiado (anunciado por SR) -->
+            <!-- Copy feedback (accessible) -->
             <span
                 id="copy-feedback"
                 role="status"
                 aria-live="polite"
-                class="mt-2 block text-xs font-medium text-success transition-all duration-200"
-                style="opacity: 0; transform: translateY(-4px)"></span>
+                class="mt-2 block text-xs font-medium text-[var(--color-success)] transition-opacity duration-200"
+                style="opacity: 0;"></span>
 
-            <!-- ── Divider ─ -->
+            <!-- ── Divider ── -->
             <div class="mt-8 flex items-center gap-4" aria-hidden="true">
-                <span class="h-px flex-1 bg-border-subtle"></span>
+                <span class="h-px flex-1 bg-[var(--color-rule)]"></span>
                 <span
-                    class="text-xs font-medium uppercase tracking-widest text-text-tertiary"
+                    class="text-xs font-medium uppercase tracking-widest text-[var(--color-muted)]"
                 >
                     También me encuentras en
                 </span>
-                <span class="h-px flex-1 bg-border-subtle"></span>
+                <span class="h-px flex-1 bg-[var(--color-rule)]"></span>
             </div>
 
-            <!-- ── Tarjetas de canal ── -->
+            <!-- ── Channel cards ── -->
             <div
                 class="mx-auto mt-6 grid max-w-md grid-cols-1 gap-4 sm:grid-cols-2"
             >
                 {
-                    channels.map(({ label, handle, href, Icon, hint }) => (
+                    channels.map(({ label, handle, href, Icon }) => (
                         <a
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`${label} — ${handle}`}
-                            class="group flex items-center gap-4 rounded-xl border border-border-subtle bg-bg-raised p-4 text-left transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-border-hover hover:shadow-[0_4px_12px_rgba(0,0,0,0.5),0_0_20px_rgba(123,108,246,0.08)]"
+                            class="group flex items-center gap-4 rounded-[var(--radius-control)] border border-[var(--color-rule)] bg-[var(--color-paper)] p-4 text-left transition-colors duration-200 hover:border-[var(--color-rule-strong)]"
                         >
-                            <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent transition-colors duration-300 group-hover:text-accent-hover">
-                                <Icon size={20} />
+                            <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-rule-strong)] text-[var(--color-accent)]">
+                                <Icon size={18} />
                             </span>
                             <span class="min-w-0 flex-1">
-                                <span class="block font-heading text-sm font-semibold text-text-primary">
+                                <span class="block text-sm font-semibold text-[var(--color-ink)]">
                                     {label}
                                 </span>
-                                <span class="block truncate text-xs text-text-tertiary">
+                                <span class="block truncate text-xs text-[var(--color-muted)]">
                                     {handle}
                                 </span>
                             </span>
                             <ExternalLink
-                                size={16}
-                                stroke-width={1.5}
+                                size={14}
                                 aria-hidden="true"
-                                class="shrink-0 text-text-tertiary transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-text-secondary"
+                                class="shrink-0 text-[var(--color-muted)]"
                             />
-                            <span class="sr-only">{hint}</span>
                         </a>
                     ))
                 }
@@ -202,7 +167,7 @@ const channels = [
     </div>
 </section>
 
-<!-- ═══ SCRIPT: copiar email al portapapeles ═══ -->
+<!-- ═══ SCRIPT: copy email to clipboard ═══ -->
 <script>
     function initCopyEmail() {
         const EMAIL = "amnerlevi20@gmail.com";
@@ -211,12 +176,10 @@ const channels = [
         const checkIcon = document.getElementById("check-icon");
         const feedback = document.getElementById("copy-feedback");
 
-        // Guard clause (type-safe + robusto)
         if (!btn || !copyIcon || !checkIcon || !feedback) return;
 
         let resetTimer: ReturnType<typeof setTimeout>;
 
-        // Fallback para contextos no seguros (http) donde clipboard API no existe
         const fallbackCopy = (text: string) => {
             const ta = document.createElement("textarea");
             ta.value = text;
@@ -238,14 +201,12 @@ const channels = [
             checkIcon.classList.remove("hidden");
             feedback.textContent = "¡Copiado!";
             feedback.style.opacity = "1";
-            feedback.style.transform = "translateY(0)";
 
             clearTimeout(resetTimer);
             resetTimer = setTimeout(() => {
                 copyIcon.classList.remove("hidden");
                 checkIcon.classList.add("hidden");
                 feedback.style.opacity = "0";
-                feedback.style.transform = "translateY(-4px)";
                 setTimeout(() => {
                     feedback.textContent = "";
                 }, 200);

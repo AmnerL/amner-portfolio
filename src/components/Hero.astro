@@ -1,164 +1,103 @@
 ---
-/**
- * Hero.astro
- * Sección de presentación principal.
- * - Bloque terminal "$ whoami" con efecto typing
- * - H1 con gradiente en "& IA Generativa"
- * - 2 CTAs: Ver Proyectos + Descargar CV
- * - Scroll indicator animado
- * - Fondo: grid pattern de puntos + gradiente superior
- */
-import { FolderGit2, Mail } from "@lucide/astro";
+import { Terminal } from "@lucide/astro";
+
+const name = "Amner Levi Llamo Sánchez";
+const role = "Ingeniero de Software Backend & IA Generativa";
+const lede =
+    "Especializado en backend de alta concurrencia con Java (Spring Boot) y arquitecturas de microservicios. Integro IA Generativa (RAG, LLMs) para construir soluciones empresariales en el sector Fintech, desde el diseño del sistema hasta el despliegue en AWS.";
 ---
 
-<section
-    id="hero"
-    class="relative flex min-h-dvh flex-col overflow-hidden px-5 pt-16 md:px-8"
-    aria-label="Presentación principal"
->
-    <!-- ═══ FONDO: Grid pattern + Gradiente ═══ -->
-    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div
-            class="absolute inset-x-0 top-0 h-[500px]"
-            style="background: radial-gradient(ellipse 60% 50% at 50% -10%, rgba(123,108,246,0.12) 0%, transparent 70%);"
-        >
-        </div>
-        <div
-            class="absolute inset-0 opacity-[0.15]"
-            style="background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 32px 32px;"
-        >
-        </div>
-    </div>
+<section class="hero-workbench site-container" data-reveal>
+    <div class="hero-workbench__grid">
+        <!-- Left column: main copy -->
+        <div class="hero-workbench__copy">
+            <span class="mono-label">
+                <Terminal size={14} />
+                Sistema inicializado
+            </span>
 
-    <!-- ═══ CONTENIDO: centrado en el espacio disponible (flex-1) ═══ -->
-    <div class="relative z-10 flex flex-1 items-center justify-center py-12">
-        <div class="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <!-- ── Bloque Terminal ── -->
-            <div
-                class="animate-fade-up mb-8 w-full max-w-md rounded-[10px] border border-border-default bg-bg-surface p-4 text-left font-mono text-sm shadow-[0_1px_3px_rgba(0,0,0,0.4)] md:text-base"
-                style="animation-delay: 0.1s"
-                role="img"
-                aria-label="Terminal mostrando el comando whoami con el nombre Amner Levi Llamo Sánchez"
-            >
-                <div class="mb-3 flex items-center gap-2" aria-hidden="true">
-                    <span class="h-3 w-3 rounded-full bg-error/70"></span>
-                    <span class="h-3 w-3 rounded-full bg-warning/70"></span>
-                    <span class="h-3 w-3 rounded-full bg-success/70"></span>
-                    <span class="ml-2 text-xs text-text-tertiary">terminal</span
-                    >
-                </div>
-                <p class="text-text-secondary">
-                    <span class="text-accent">$</span> whoami
-                </p>
-                <p class="mt-1 text-text-primary">
-                    <span class="text-text-tertiary">&gt;</span>{" "}
-                    <span id="typing-target" aria-hidden="true"></span>
-                    <span
-                        class="animate-blink ml-0.5 inline-block h-[1.1em] w-[2px] translate-y-[2px] bg-accent"
-                        aria-hidden="true"></span>
-                </p>
-            </div>
-
-            <!-- ── H1: Título principal ── -->
-            <h1
-                class="animate-fade-up font-heading text-4xl font-bold leading-[1.1] tracking-tight text-text-primary sm:text-5xl lg:text-6xl"
-                style="animation-delay: 0.25s"
-            >
-                Ingeniero de Software Backend
-                <br />
-                <span
-                    class="bg-gradient-to-r from-accent to-info bg-clip-text text-transparent"
-                >
-                    &amp; IA Generativa
-                </span>
+            <h1>
+                {name}
             </h1>
-
-            <!-- ── Párrafo de apoyo ── -->
-            <p
-                class="animate-fade-up mt-6 max-w-xl text-base leading-[1.7] text-text-secondary md:text-lg"
-                style="animation-delay: 0.4s"
-            >
-                Construyendo puentes entre la tecnología robusta y la
-                inteligencia artificial para resolver problemas financieros
-                reales.
+            <p class="hero-workbench__role">
+                {role}
             </p>
 
-            <!-- ── CTAs ── -->
-            <div
-                class="animate-fade-up mt-10 flex flex-col items-center gap-4 sm:flex-row"
-                style="animation-delay: 0.55s"
-            >
-                <!-- CTA Primario: Ver Proyectos (sin cambios) -->
-                <a
-                    href="#projects"
-                    class="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3.5 text-base font-semibold text-bg-base transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-[0_0_24px_var(--color-accent-glow)] sm:w-auto"
-                >
-                    <FolderGit2
-                        size={18}
-                        stroke-width={1.5}
-                        aria-hidden="true"
-                        class="transition-transform duration-300 group-hover:scale-110"
-                    />
-                    Ver Proyectos
-                </a>
+            <p class="hero-workbench__lede">
+                {lede}
+            </p>
 
-                <!-- CTA Secundario: Contáctame → scroll a #contact -->
+            <div class="hero-workbench__actions">
+                <a href="#projects" class="button-primary"> Ver proyectos </a>
+                <a href="#contact" class="button-outline"> Contactar </a>
                 <a
-                    href="#contact"
-                    class="group inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border-default bg-transparent px-7 py-3.5 text-base font-semibold text-text-primary transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:border-border-hover hover:bg-bg-raised sm:w-auto"
+                    href="/cv.pdf"
+                    class="command-trigger"
+                    target="_blank"
+                    rel="noopener"
                 >
-                    <Mail
-                        size={18}
-                        stroke-width={1.5}
-                        aria-hidden="true"
-                        class="transition-transform duration-300 group-hover:scale-110"
-                    />
-                    Contáctame
+                    <span>Descargar CV</span>
+                    <kbd>PDF</kbd>
                 </a>
             </div>
         </div>
-    </div>
 
-    <!-- ═══ SCROLL INDICATOR: en flujo (shrink-0) → nunca se solapa ═══ -->
-    <div
-        class="animate-fade-up relative z-10 flex shrink-0 justify-center pb-8"
-        style="animation-delay: 0.8s"
-        aria-hidden="true"
-    >
-        <div class="flex flex-col items-center gap-2">
-            <span
-                class="text-xs font-medium tracking-widest text-text-tertiary uppercase"
-            >
-                Scroll
-            </span>
-            <div class="h-10 w-[2px] overflow-hidden rounded-full bg-bg-raised">
+        <!-- Right column: Architecture panel -->
+        <figure class="architecture-panel">
+            <div class="architecture-panel__header">
+                <span>Arquitectura Base</span>
+                <span class="status-chip">● Activo</span>
+            </div>
+
+            <!-- Row 1: Frontend ⟷ Backend -->
+            <div class="architecture-map">
+                <div class="architecture-map__node">
+                    Frontend<br /><span class="text-muted"
+                        >React / TypeScript</span
+                    >
+                </div>
+                <div class="architecture-map__connector">⟷</div>
                 <div
-                    class="animate-scroll-line h-full w-full rounded-full bg-gradient-to-b from-accent to-info"
+                    class="architecture-map__node architecture-map__node--accent"
                 >
+                    Backend<br /><span class="text-muted"
+                        >Java / Spring Boot</span
+                    >
                 </div>
             </div>
-        </div>
+
+            <!-- Row 2: Generative AI ⟷ Data -->
+            <div class="architecture-map">
+                <div
+                    class="architecture-map__node architecture-map__node--accent"
+                >
+                    IA Generativa<br /><span class="text-muted"
+                        >RAG / LangChain4j</span
+                    >
+                </div>
+                <div class="architecture-map__connector">⟷</div>
+                <div class="architecture-map__node">
+                    Data<br /><span class="text-muted"
+                        >PostgreSQL / pgvector</span
+                    >
+                </div>
+            </div>
+
+            <!-- Row 3: Cloud ⟷ Messaging -->
+            <div class="architecture-map">
+                <div class="architecture-map__node">
+                    Cloud<br /><span class="text-muted">AWS / Docker</span>
+                </div>
+                <div class="architecture-map__connector">⟷</div>
+                <div class="architecture-map__node">
+                    Messaging<br /><span class="text-muted">Kafka / Async</span>
+                </div>
+            </div>
+
+            <figcaption>
+                Microservicios de alta concurrencia con arquitectura hexagonal,
+                DDD y pipelines de IA orientados al sector Fintech.
+            </figcaption>
+        </figure>
     </div>
 </section>
-
-<!-- ═══ SCRIPT: Efecto typing del terminal ═══ -->
-<script>
-    const target = document.getElementById("typing-target");
-    const text = "Amner Levi Llamo Sánchez";
-
-    if (target) {
-        let i = 0;
-        const speed = 55; // ms por carácter → ~1.3s total
-        const startDelay = 600; // espera a que termine el fade-up
-
-        const typeChar = () => {
-            if (i < text.length) {
-                target.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeChar, speed);
-            }
-        };
-
-        setTimeout(typeChar, startDelay);
-    }
-</script>

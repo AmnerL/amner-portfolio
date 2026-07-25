@@ -1,32 +1,12 @@
 ---
 /**
  * Journey.astro
- * Timeline vertical de trayectoria: Educación → Experiencia →
- * Certificaciones → Idiomas.
- *
- * - <ol> semántico (el orden tiene significado) + role="list"
- *   (Safari/VoiceOver pierde la semántica con list-style: none).
- * - Cada <li> = columna nodo+línea (izq) + card de contenido (der).
- * - El tramo de línea y el "encendido" del nodo se animan con el
- *   .is-visible del propio <li data-reveal> (sin JS nuevo).
- * - Modelo con campos OPCIONALES (no union) → narrowing por truthiness
- *   en el template, 100% type-safe en Astro 7.
- *
- * Para volver al orden original del wireframe: mueve el objeto
- * `experience` al final del array `milestones`.
+ * Timeline in "journey-list" format (typographic log).
+ * Layout: date/meta on the left, content on the right.
+ * No vertical timeline, no nodes, no cards, no glow, no hover.
+ * The information speaks for itself.
  */
-import SectionHeading from "./SectionHeading.astro";
-import {
-    GraduationCap,
-    Briefcase,
-    Award,
-    Languages,
-    Calendar,
-    Trophy,
-    BadgeCheck,
-} from "@lucide/astro";
-
-type IconComponent = typeof import("@lucide/astro").Server;
+import { Trophy, BadgeCheck } from "@lucide/astro";
 
 interface CertItem {
     name: string;
@@ -40,37 +20,34 @@ interface LangItem {
 }
 
 interface Milestone {
-    Icon: IconComponent;
     title: string;
     org: string;
-    period?: string; // badge de fecha/duración
-    achievement?: string; // educación
-    summary?: string; // experiencia
-    certs?: CertItem[]; // certificaciones
-    langs?: LangItem[]; // idiomas
+    period: string;
+    achievement?: string;
+    summary?: string;
+    certs?: CertItem[];
+    langs?: LangItem[];
 }
 
 const milestones: Milestone[] = [
     {
-        Icon: GraduationCap,
         title: "Ingeniería de Software",
         org: "Universidad Peruana de Ciencias Aplicadas (UPC)",
-        period: "Mar 2022 – Jul 2027 · proyectada",
+        period: "2022 – 2027",
         achievement:
             "Quinto superior · Promedio acumulado 17.71 · Décimo superior en varios ciclos.",
     },
     {
-        Icon: Briefcase,
         title: "Trainee de Desarrollo",
-        org: "CIVA",
-        period: "10 meses",
+        org: "CIVA · Lima, Perú",
+        period: "Dic 2024 – Sep 2025",
         summary:
-            "Mi primer rol profesional en desarrollo de software. Ahí confirmé que el código de calidad no solo debe ser eficiente, sino también seguro, mantenible y centrado en el usuario final.",
+            "Desarrollo de funcionalidades clave para un sistema de Gestión de Capital Humano (HCM) en entorno Java/TypeScript. Diseño de APIs RESTful, implementación de almacenamiento en AWS S3, generación de PDFs con Thymeleaf y desarrollo de interfaces de administración con React para usuarios reales del área de RRHH.",
     },
     {
-        Icon: Award,
         title: "Certificaciones",
-        org: "Validación externa y formación continua",
+        org: "Formación continua validada",
+        period: "2023 – 2025",
         certs: [
             {
                 name: "Generative AI Fundamentals Specialization",
@@ -95,9 +72,9 @@ const milestones: Milestone[] = [
         ],
     },
     {
-        Icon: Languages,
         title: "Idiomas",
         org: "Comunicación técnica y profesional",
+        period: "",
         langs: [
             { lang: "Español", level: "Nativo" },
             {
@@ -110,150 +87,109 @@ const milestones: Milestone[] = [
 ];
 ---
 
-<section
-    id="journey"
-    aria-labelledby="journey-title"
-    class="scroll-mt-20 bg-bg-base px-5 py-16 md:px-8 md:py-24"
->
-    <div class="mx-auto max-w-4xl">
-        <div data-reveal>
-            <SectionHeading
-                id="journey-title"
-                title="Trayectoria"
-                subtitle="Formación, experiencia y validación de lo que sé hacer."
-            />
-        </div>
+<section id="journey" class="section-shell" aria-labelledby="journey-title">
+    <div class="site-container">
+        <header class="section-head" data-reveal>
+            <span class="section-kicker">Trayectoria</span>
+            <h2 id="journey-title" class="section-title">
+                Formación & Experiencia
+            </h2>
+            <p class="section-subtitle">
+                Educación, experiencia profesional y validación externa de
+                competencias técnicas.
+            </p>
+        </header>
 
-        <!-- Timeline -->
-        <ol role="list" class="mt-10 md:mt-14">
+        <div class="journey-list">
             {
-                milestones.map((item, i) => {
-                    const isLast = i === milestones.length - 1;
-                    return (
-                        <li
-                            data-reveal
-                            style={`--reveal-delay: ${i * 100}ms`}
-                            class="flex items-stretch gap-4 sm:gap-6"
-                        >
-                            {/* ── Columna nodo + tramo de línea ── */}
-                            <div
-                                class="flex flex-col items-center"
-                                aria-hidden="true"
-                            >
-                                <span class="timeline-node mt-2 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border bg-bg-surface">
-                                    <item.Icon size={20} stroke-width={1.5} />
-                                </span>
-                                {!isLast && (
-                                    <span class="timeline-line mt-2 w-px flex-1 bg-gradient-to-b from-accent/40 via-accent/30 to-info/30" />
-                                )}
-                            </div>
+                milestones.map((item) => (
+                    <div class="journey-entry">
+                        {/* Left column: Meta / Date */}
+                        <div>
+                            <span class="journey-entry__meta">
+                                {item.period}
+                            </span>
+                        </div>
 
-                            {/* ── Columna contenido (card) ── */}
-                            <div
-                                class:list={[
-                                    "flex-1",
-                                    isLast ? "pb-0" : "pb-10",
-                                ]}
-                            >
-                                <div class="rounded-xl border border-border-subtle bg-bg-surface p-5 transition-all duration-300 ease-in-out hover:border-border-hover hover:shadow-[0_4px_12px_rgba(0,0,0,0.5),0_0_20px_rgba(123,108,246,0.08)] md:p-6">
-                                    {/* Encabezado: título + org + periodo */}
-                                    <div class="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
-                                        <div>
-                                            <h3 class="font-heading text-lg font-semibold tracking-tight text-text-primary md:text-xl">
-                                                {item.title}
-                                            </h3>
-                                            <p class="mt-0.5 text-sm text-text-secondary">
-                                                {item.org}
-                                            </p>
-                                        </div>
-                                        {item.period && (
-                                            <span class="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-bg-raised px-2.5 py-1 text-xs font-medium text-text-tertiary">
-                                                <Calendar
-                                                    size={13}
+                        {/* Right column: Content */}
+                        <div>
+                            <h3>{item.title}</h3>
+                            <p class="journey-entry__meta">{item.org}</p>
+
+                            {/* Education: achievement */}
+                            {item.achievement && (
+                                <p class="mt-3 flex items-start gap-2 text-sm leading-relaxed text-[var(--color-ink-soft)]">
+                                    <Trophy
+                                        size={15}
+                                        stroke-width={1.5}
+                                        class="mt-0.5 shrink-0 text-[var(--color-success)]"
+                                        aria-hidden="true"
+                                    />
+                                    <span>{item.achievement}</span>
+                                </p>
+                            )}
+
+                            {/* Experience: summary */}
+                            {item.summary && (
+                                <p class="mt-3 text-sm leading-relaxed text-[var(--color-ink-soft)]">
+                                    {item.summary}
+                                </p>
+                            )}
+
+                            {/* Certifications */}
+                            {item.certs && (
+                                <ul class="journey-entry__details">
+                                    {item.certs.map((c) => (
+                                        <li class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                                            <span class="flex items-start gap-2 text-sm">
+                                                <BadgeCheck
+                                                    size={15}
                                                     stroke-width={1.5}
+                                                    class="mt-0.5 shrink-0 text-[var(--color-accent)]"
                                                     aria-hidden="true"
                                                 />
-                                                {item.period}
+                                                <span>
+                                                    <span class="font-medium text-[var(--color-ink)]">
+                                                        {c.name}
+                                                    </span>
+                                                    <span class="text-[var(--color-muted)]">
+                                                        {" "}
+                                                        · {c.issuer}
+                                                    </span>
+                                                </span>
                                             </span>
-                                        )}
-                                    </div>
+                                            <span class="text-xs text-[var(--color-muted)]">
+                                                {c.date}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
 
-                                    {/* Cuerpo: educación */}
-                                    {item.achievement && (
-                                        <p class="mt-3 flex items-start gap-2 text-sm leading-relaxed text-text-secondary">
-                                            <Trophy
-                                                size={16}
-                                                stroke-width={1.5}
-                                                class="mt-0.5 shrink-0 text-warning"
-                                                aria-hidden="true"
-                                            />
-                                            <span>{item.achievement}</span>
-                                        </p>
-                                    )}
-
-                                    {/* Cuerpo: experiencia */}
-                                    {item.summary && (
-                                        <p class="mt-3 text-sm leading-relaxed text-text-secondary">
-                                            {item.summary}
-                                        </p>
-                                    )}
-
-                                    {/* Cuerpo: certificaciones */}
-                                    {item.certs && (
-                                        <ul role="list" class="mt-4 space-y-3">
-                                            {item.certs.map((c) => (
-                                                <li class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
-                                                    <span class="flex items-start gap-2 text-sm">
-                                                        <BadgeCheck
-                                                            size={16}
-                                                            stroke-width={1.5}
-                                                            class="mt-0.5 shrink-0 text-accent"
-                                                            aria-hidden="true"
-                                                        />
-                                                        <span>
-                                                            <span class="font-medium text-text-primary">
-                                                                {c.name}
-                                                            </span>
-                                                            <span class="text-text-tertiary">
-                                                                {" "}
-                                                                · {c.issuer}
-                                                            </span>
-                                                        </span>
-                                                    </span>
-                                                    <span class="text-xs text-text-tertiary">
-                                                        {c.date}
-                                                    </span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-
-                                    {/* Cuerpo: idiomas */}
-                                    {item.langs && (
-                                        <ul role="list" class="mt-4 space-y-3">
-                                            {item.langs.map((l) => (
-                                                <li class="flex flex-wrap items-center gap-x-3 gap-y-1">
-                                                    <span class="text-sm font-medium text-text-primary">
-                                                        {l.lang}
-                                                    </span>
-                                                    <span class="rounded-md bg-accent-subtle px-2 py-0.5 text-xs font-semibold text-accent">
-                                                        {l.level}
-                                                    </span>
-                                                    {l.note && (
-                                                        <span class="w-full text-xs leading-relaxed text-text-tertiary sm:w-auto">
-                                                            {l.note}
-                                                        </span>
-                                                    )}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                </div>
-                            </div>
-                        </li>
-                    );
-                })
+                            {/* Languages */}
+                            {item.langs && (
+                                <ul class="journey-entry__details">
+                                    {item.langs.map((l) => (
+                                        <li class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                                            <span class="text-sm font-medium text-[var(--color-ink)]">
+                                                {l.lang}
+                                            </span>
+                                            <span class="rounded-[var(--radius-control)] border border-[var(--color-rule-strong)] px-2 py-0.5 text-xs font-medium text-[var(--color-accent)]">
+                                                {l.level}
+                                            </span>
+                                            {l.note && (
+                                                <span class="w-full text-xs leading-relaxed text-[var(--color-muted)]">
+                                                    {l.note}
+                                                </span>
+                                            )}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    </div>
+                ))
             }
-        </ol>
+        </div>
     </div>
 </section>
