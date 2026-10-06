@@ -1,0 +1,98 @@
+---
+import { FileText, Scissors, Database, MessageCircle, Search, ListChecks } from "@lucide/astro";
+const preparation = [
+  { label: "PDF", detail: "Documento normativo", Icon: FileText },
+  { label: "Procesar documento", detail: "Fragmentos y embeddings", Icon: Scissors },
+  { label: "Base vectorial", detail: "PostgreSQL · pgvector", Icon: Database }
+];
+const consultation = [
+  { label: "Pregunta", detail: "Lenguaje natural", Icon: MessageCircle, name: "question" },
+  { label: "Recuperar contexto", detail: "Búsqueda semántica", Icon: Search, name: "context" },
+  { label: "Respuesta y fuentes", detail: "Gemini genera el texto; los fragmentos aportan las fuentes", Icon: ListChecks, name: "answer" }
+];
+---
+<figure class="rag-diagram" aria-labelledby="rag-title" aria-describedby="rag-description">
+  <figcaption><h4 id="rag-title">Cómo funciona</h4></figcaption>
+  <p id="rag-description" class="sr-only">Los documentos PDF se dividen en fragmentos y se indexan mediante embeddings en PostgreSQL con pgvector. La pregunta permite recuperar fragmentos relevantes. Gemini genera la respuesta a partir de la pregunta y ese contexto; las fuentes se obtienen de los fragmentos recuperados</p>
+  <h5 class="rag-stage">Preparar documentos</h5>
+  <ol class="rag-row rag-preparation">
+    {preparation.map((step, index) => (
+      <li class="rag-step">
+        <div class="rag-node"><div class="rag-node-title"><step.Icon size={20} aria-hidden="true" /><strong>{step.label}</strong></div><p>{step.detail}</p></div>
+        {index < 2 && <svg class="rag-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12h20m-5-5 5 5-5 5" /></svg>}
+      </li>
+    ))}
+  </ol>
+  <div class="rag-corridor">
+    <h5 class="rag-stage">Consultar</h5>
+    <svg class="rag-base-link" viewBox="0 0 200 56" preserveAspectRatio="none" aria-hidden="true"><path d="M150 0v18H50v35m-4-5 4 5 4-5" /></svg>
+  </div>
+  <ol class="rag-row rag-consultation" role="list">
+    {consultation.map((step, index) => (
+      <li class:list={["rag-step", `rag-${step.name}`]}>
+        <div class="rag-node"><div class="rag-node-title"><step.Icon size={20} aria-hidden="true" /><strong><span class="rag-number" aria-hidden="true"></span>{step.label}</strong></div><p>{step.detail}</p>{step.name === "context" && <p class="rag-base-reference">Busca en la base vectorial anterior</p>}</div>
+        {index < 2 && <svg class="rag-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 12h20m-5-5 5 5-5 5" /></svg>}
+      </li>
+    ))}
+  </ol>
+</figure>
+<script>
+  import { animate } from "motion/mini";
+  const diagram = document.querySelector<HTMLElement>(".rag-diagram");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let entrance: ReturnType<typeof animate> | undefined;
+  if (diagram && !reduced.matches && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        if (!reduced.matches) {
+          entrance = animate(diagram, { transform: ["translateY(8px)", "translateY(0px)"] }, { duration: .4, ease: [.16, 1, .3, 1] });
+        }
+        observer.disconnect();
+      }
+    }, { threshold: .15 });
+    observer.observe(diagram);
+    reduced.addEventListener("change", () => {
+      if (reduced.matches) {
+        observer.disconnect();
+        entrance?.stop();
+        diagram.style.removeProperty("transform");
+      }
+    });
+  }
+</script>
+
+
+<style>
+  .rag-diagram { container: compliance-flow / inline-size; margin: 0; padding: clamp(1.25rem, 2vw, 1.5rem); border: 1px solid var(--rule); border-radius: .75rem; background: var(--paper); min-width: 0; }
+  .rag-diagram h4 { font-size: 1.25rem; line-height: 1.3; margin: 0 0 1.25rem; max-width: none; }
+  .rag-stage { font-size: 1rem; font-weight: 600; margin: 0 0 .75rem; }
+  .rag-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; list-style: none; padding: 0; margin: 0; }
+  .rag-step { display: grid; position: relative; min-width: 0; }
+  .rag-node { padding: .75rem; border: 1px solid var(--rule); border-radius: .75rem; background: var(--color-surface); min-width: 0; }
+  .rag-node-title { display: flex; align-items: flex-start; gap: .5rem; }
+  .rag-node-title > svg { color: var(--accent); flex-shrink: 0; margin-top: .1rem; }
+  .rag-node strong { font-size: 1rem; font-weight: 500; line-height: 1.4; }
+  .rag-node p { color: var(--muted); font-size: .875rem; line-height: 1.5; margin: .5rem 0 0; }
+  .rag-arrow { position: absolute; width: 24px; height: 24px; right: -24px; top: calc(50% - 12px); }
+  .rag-diagram svg path { fill: none; stroke: var(--accent); stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }
+  .rag-corridor { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1.5rem; }
+  .rag-corridor .rag-stage { grid-column: 1; grid-row: 1; align-self: end; margin-bottom: .75rem; }
+  .rag-base-link { grid-column: 2 / -1; grid-row: 1; width: 100%; height: 56px; }
+  .rag-question { grid-column: 3; grid-row: 1; }
+  .rag-context { grid-column: 2; grid-row: 1; }
+  .rag-answer { grid-column: 1; grid-row: 1; }
+  .rag-consultation { counter-reset: consultation-step; }
+  .rag-consultation > li { counter-increment: consultation-step; }
+  .rag-number::before { content: counter(consultation-step) ". "; }
+  .rag-consultation .rag-arrow { right: auto; left: -24px; transform: rotate(180deg); }
+  .rag-base-reference { display: none; }
+  @container compliance-flow (max-width: 34rem) {
+    .rag-row { grid-template-columns: 1fr; gap: 2rem; }
+    .rag-step { grid-column: 1; grid-row: auto; }
+    .rag-arrow, .rag-consultation .rag-arrow { top: auto; bottom: -28px; right: calc(50% - 12px); left: auto; transform: rotate(90deg); }
+    .rag-corridor { display: block; margin-top: 1.5rem; }
+    .rag-corridor .rag-stage { margin-bottom: .75rem; }
+    .rag-base-link { display: none; }
+    .rag-base-reference { display: block; }
+  }
+</style>
