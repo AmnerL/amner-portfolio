@@ -1,103 +1,31 @@
 ---
-import { Terminal } from "@lucide/astro";
-
-const name = "Amner Levi Llamo Sánchez";
-const role = "Ingeniero de Software Backend & IA Generativa";
-const lede =
-    "Especializado en backend de alta concurrencia con Java 21 (Spring Boot) y arquitecturas de microservicios. Integro IA Generativa (RAG, LLMs) para construir soluciones empresariales en el sector Fintech, desde el diseño del sistema hasta el despliegue en AWS.";
+import { ArrowDown, Download, ArrowUpRight, BadgeCheck } from "@lucide/astro";
+import SoftwareLayers from "./SoftwareLayers.astro";
 ---
-
-<section class="hero-workbench site-container" data-reveal>
-    <div class="hero-workbench__grid">
-        <!-- Left column: main copy -->
-        <div class="hero-workbench__copy">
-            <span class="mono-label">
-                <Terminal size={14} />
-                Sistema inicializado
-            </span>
-
-            <h1>
-                {name}
-            </h1>
-            <p class="hero-workbench__role">
-                {role}
-            </p>
-
-            <p class="hero-workbench__lede">
-                {lede}
-            </p>
-
-            <div class="hero-workbench__actions">
-                <a href="#projects" class="button-primary"> Ver proyectos </a>
-                <a href="#contact" class="button-outline"> Contactar </a>
-                <a
-                    href="/cv.pdf"
-                    class="command-trigger"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <span>Descargar CV</span>
-                    <kbd>PDF</kbd>
-                </a>
-            </div>
-        </div>
-
-        <!-- Right column: Architecture panel -->
-        <figure class="architecture-panel">
-            <div class="architecture-panel__header">
-                <span>Arquitectura Base</span>
-                <span class="status-chip">● Activo</span>
-            </div>
-
-            <!-- Row 1: Frontend ⟷ Backend (ACTUALIZADO CON VERSIONES) -->
-            <div class="architecture-map">
-                <div class="architecture-map__node">
-                    Frontend<br /><span class="text-muted"
-                        >React / TypeScript</span
-                    >
-                </div>
-                <div class="architecture-map__connector">⟷</div>
-                <div
-                    class="architecture-map__node architecture-map__node--accent"
-                >
-                    Backend<br /><span class="text-muted"
-                        >Java 21 / Spring Boot 3.5.x</span
-                    >
-                </div>
-            </div>
-
-            <!-- Row 2: Generative AI ⟷ Data -->
-            <div class="architecture-map">
-                <div
-                    class="architecture-map__node architecture-map__node--accent"
-                >
-                    IA Generativa<br /><span class="text-muted"
-                        >RAG / LangChain4j</span
-                    >
-                </div>
-                <div class="architecture-map__connector">⟷</div>
-                <div class="architecture-map__node">
-                    Data<br /><span class="text-muted"
-                        >PostgreSQL / pgvector</span
-                    >
-                </div>
-            </div>
-
-            <!-- Row 3: Cloud ⟷ Messaging -->
-            <div class="architecture-map">
-                <div class="architecture-map__node">
-                    Cloud<br /><span class="text-muted">AWS / Docker</span>
-                </div>
-                <div class="architecture-map__connector">⟷</div>
-                <div class="architecture-map__node">
-                    Messaging<br /><span class="text-muted">Kafka / Async</span>
-                </div>
-            </div>
-
-            <figcaption>
-                Microservicios de alta concurrencia con arquitectura hexagonal,
-                DDD y pipelines de IA orientados al sector Fintech.
-            </figcaption>
-        </figure>
+<section id="hero" class="hero container" aria-labelledby="hero-title">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="hero-name" data-hero-text>Amner Levi Llamo Sánchez</p>
+      <h1 id="hero-title" data-hero-text>Ingeniero<br />de Software<span class="hero-period">.</span></h1>
+      <p class="hero-description" data-hero-text>Desarrollo aplicaciones con <strong>Java y Spring Boot.</strong> Tengo experiencia en sistemas de recursos humanos y construyo proyectos que integran IA para consultar información documental.</p>
+      <div class="actions" data-hero-text>
+        <a class="button primary" href="#projects">Ver proyectos <ArrowDown size={18} aria-hidden="true" /></a>
+        <a class="button" href="/CV_Amner_Backend_Java.pdf" download>Descargar CV <Download size={18} aria-hidden="true" /></a>
+        <a class="text-link" href="#contact">Contacto <ArrowUpRight size={18} aria-hidden="true" /></a>
+      </div>
+      <div class="hero-credentials" data-hero-text>
+        <a href="#journey" class="credential-link"><BadgeCheck size={18} aria-hidden="true" /> AWS Certified AI Practitioner</a>
+        <p>Estudiante de Ingeniería de Software · UPC<br />Lima, Perú</p>
+      </div>
     </div>
+    <SoftwareLayers />
+  </div>
+  <a class="hero-feature" href="#compliance-hub">
+    <span>Proyecto personal · Java + IA</span>
+    <strong>Compliance Hub</strong>
+    <span>Explorar el proyecto <ArrowUpRight size={18} aria-hidden="true" /></span>
+  </a>
 </section>
+<script>
+  import "../scripts/hero-motion";
+</script>

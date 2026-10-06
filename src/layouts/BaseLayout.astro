@@ -14,8 +14,8 @@ interface Props {
 }
 
 const {
-    title = "Amner Levi Llamo Sánchez | Ingeniero de Software Backend & IA Generativa",
-    description = "Construyendo puentes entre la tecnología robusta y la inteligencia artificial para resolver problemas financieros reales.",
+    title = "Amner Levi Llamo Sánchez | Ingeniero de Software",
+    description = "Ingeniero de Software con enfoque en backend Java y Spring Boot, experiencia en sistemas de recursos humanos e IA aplicada a consultas documentales. Estudiante de Ingeniería de Software en UPC, con interés en Fintech.",
 } = Astro.props;
 
 const SITE_URL = "https://amner-portfolio.vercel.app";
@@ -35,11 +35,12 @@ const SITE_URL = "https://amner-portfolio.vercel.app";
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL} />
         <meta property="og:image" content={`${SITE_URL}/og.png`} />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta
             property="og:image:alt"
-            content="Amner Levi Llamo Sánchez — Ingeniero de Software Backend & IA Generativa"
+            content="Amner Levi Llamo Sánchez · Ingeniero de Software · Java, Spring Boot e IA aplicada. Ilustración de las capas de datos, lógica de negocio y API sobre fondo negro con detalles ámbar."
         />
 
         <!-- Twitter / X: tarjeta con imagen grande -->
@@ -47,17 +48,10 @@ const SITE_URL = "https://amner-portfolio.vercel.app";
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={`${SITE_URL}/og.png`} />
+        <meta name="twitter:image:alt" content="Amner Levi Llamo Sánchez · Ingeniero de Software · Java, Spring Boot e IA aplicada. Tres capas de software en negro y ámbar." />
 
         <!-- Favicon (AL monogram) -->
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-        <!-- Fonts: Space Grotesk + Inter + JetBrains Mono -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
-            rel="stylesheet"
-        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
 
         <title>{title}</title>
     </head>
@@ -66,7 +60,7 @@ const SITE_URL = "https://amner-portfolio.vercel.app";
         <!-- Skip link for keyboard accessibility -->
         <a
             href="#main-content"
-            class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[var(--color-accent)] focus:text-[var(--color-accent-ink)] focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold"
+            class="skip-link"
         >
             Saltar al contenido principal
         </a>
@@ -78,33 +72,5 @@ const SITE_URL = "https://amner-portfolio.vercel.app";
         </main>
 
         <Footer />
-        <script>
-            (function initReveal() {
-                const items = document.querySelectorAll("[data-reveal]");
-                if (!items.length) return;
-
-                const reduce = window.matchMedia(
-                    "(prefers-reduced-motion: reduce)",
-                ).matches;
-                if (reduce || !("IntersectionObserver" in window)) {
-                    items.forEach((el) => el.classList.add("is-visible"));
-                    return;
-                }
-
-                const io = new IntersectionObserver(
-                    (entries, obs) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add("is-visible");
-                                obs.unobserve(entry.target);
-                            }
-                        });
-                    },
-                    { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
-                );
-
-                items.forEach((el) => io.observe(el));
-            })();
-        </script>
     </body>
 </html>

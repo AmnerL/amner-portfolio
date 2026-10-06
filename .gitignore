@@ -5,6 +5,7 @@ dist/
 
 # dependencies
 node_modules/
+/.pnpm-store/
 
 # logs
 npm-debug.log*
@@ -22,3 +23,17 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# locally installed agent skills and hooks
+/.agents/skills/
+/.codex/hooks.json
+
+# local design verification artifacts
+/.impeccable/config.local.json
+/.impeccable/review/
+/.impeccable/check.cjs
+/.impeccable/check-amber.cjs
+/.impeccable/capture-flow.cjs
+/.impeccable/final-check.cjs
+/.impeccable/format.cjs
+/.impeccable/fonts.css

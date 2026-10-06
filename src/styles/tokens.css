@@ -1,81 +1,29 @@
-/* Hallmark · genre: modern-minimal · macrostructure: Workbench · theme: Cobalt (DARK MODE)
- * tone: technical · anchor hue: electric cobalt · nav: N13 · footer: Ft2
- */
 :root {
-  /* Backgrounds (Dark Mode) */
-  --color-paper: oklch(12% 0.02 260);
-  /* Main background, very dark (near-black blue) */
-  --color-paper-raised: oklch(16% 0.02 260);
-  /* Elevated surfaces (cards, panels) */
-  --color-paper-strong: oklch(22% 0.02 260);
-  /* Borders or very elevated surfaces */
+  --color-background: #0C0C0D;
+  --color-surface: #1A1A1D;
+  --color-text: #F7F2E8;
+  --color-text-secondary: #BBB6AD;
+  --color-accent: #F4B860;
+  --color-border: #48433B;
+  --color-on-accent: var(--color-background);
+  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);
+  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);
 
-  /* Text colors (Dark Mode) */
-  --color-ink: oklch(95% 0.01 260);
-  /* Primary text (off-white) */
-  --color-ink-soft: oklch(75% 0.015 260);
-  /* Secondary text */
-  --color-muted: oklch(55% 0.015 260);
-  /* Tertiary text / labels */
-
-  /* Rules and Borders (subtle in dark mode) */
-  --color-rule: oklch(25% 0.02 260);
-  /* Very subtle borders */
-  --color-rule-strong: oklch(35% 0.02 260);
-  /* Visible borders (e.g. panels) */
-
-  /* Contrast surfaces (for the architecture panel, for example) */
-  --color-graphite: oklch(18% 0.02 260);
-  --color-light-ink: oklch(95% 0.01 260);
-  --color-light-muted: oklch(65% 0.015 260);
-
-  /* Accent: Electric Cobalt (adjusted for maximum contrast in dark mode) */
-  --color-accent: oklch(65% 0.22 256);
-  --color-accent-hover: oklch(70% 0.22 256);
-  --color-accent-ink: oklch(12% 0.02 260);
-  /* Text on top of the accent button */
-  --color-focus: oklch(65% 0.22 256);
-
-  /* States */
-  --color-success: oklch(65% 0.15 150);
-  /* Emerald green */
-
-  /* Typography and Spacing (kept as-is, they are perfect) */
+  /* Semantic aliases shared by the existing content sections. */
+  --paper: var(--color-background);
+  --ink: var(--color-text);
+  --muted: var(--color-text-secondary);
+  --accent: var(--color-accent);
+  --rule: var(--color-border);
+  --dark: var(--color-surface);
+  --on-dark: var(--color-text);
+  --on-dark-muted: var(--color-text-secondary);
   --font-display: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-
-  --space-3xs: .25rem;
-  --space-2xs: .5rem;
-  --space-xs: .75rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --space-2xl: 4.5rem;
-  --space-3xl: 7rem;
-
-  --page-gutter: clamp(1rem, 4vw, 3rem);
-  --content-max: 76rem;
-
-  --text-xs: .75rem;
-  --text-sm: .875rem;
-  --text-base: 1rem;
-  --text-md: 1.25rem;
-  --text-lg: 1.563rem;
-  --text-xl: 1.953rem;
-  --text-2xl: 2.441rem;
-  --text-display: clamp(2.7rem, 5vw + .5rem, 5.15rem);
-
-  --dur-micro: 120ms;
-  --dur-short: 220ms;
-  --dur-long: 420ms;
+  --gutter: clamp(1.25rem, 4.5vw, 4rem);
+  --max: 76rem;
+  --space-section: clamp(3rem, 5.5vw, 5rem);
+  --space-column: clamp(2rem, 5vw, 5rem);
   --ease-out: cubic-bezier(.16, 1, .3, 1);
-  --ease-in: cubic-bezier(.7, 0, .84, 0);
-  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
-
-  --radius-control: .375rem;
-  --radius-panel: .625rem;
-  --z-sticky: 200;
-  --z-modal: 400;
+  --motion-feedback: 180ms;
 }

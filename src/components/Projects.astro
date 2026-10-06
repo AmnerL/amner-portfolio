@@ -1,125 +1,61 @@
 ---
-/**
- * Projects.astro
- * Projects section in "ledger" format (technical log).
- * No cards, no glow, no heavy hover.
- * Hierarchy is given by the numeric index and information density.
- */
-import ProjectCase from "./ProjectCase.astro";
-
-const projects = [
-    {
-        id: "compliance-hub",
-        index: "01",
-        title: "Compliance Hub",
-        subtitle: "Asistente de Cumplimiento Normativo con IA",
-        description:
-            "Plataforma empresarial para la gestión de cumplimiento normativo que integra un asistente de IA generativa. El asistente utiliza un pipeline RAG para responder preguntas en lenguaje natural sobre documentos legales, citando las fuentes exactas.",
-        pipeline: {
-            label: "Pipeline RAG",
-            steps: [
-                "Ingesta de PDFs → Chunking",
-                "Embeddings con Gemini",
-                "Almacenamiento vectorial en pgvector",
-                "Consulta al LLM → Respuesta con fuentes",
-            ],
-        },
-        contributions: [
-            "Backend con Java 21, Spring Boot 3.5 y Spring AI. Arquitectura hexagonal, DDD y principios SOLID.",
-            "Pipeline RAG completo: ingesta, chunking, embeddings, pgvector y consulta al LLM.",
-            "Frontend con React 19, TypeScript, Redux Toolkit y Tailwind CSS 4.",
-            "Spring Security + JWT, gestión documental, checklists, notificaciones, reportes PDF y panel de auditoría.",
-        ],
-        techs: [
-            "Java 21",
-            "Spring Boot",
-            "Spring AI",
-            "Gemini",
-            "PostgreSQL",
-            "pgvector",
-            "React 19",
-            "TypeScript",
-            "Redux Toolkit",
-            "Tailwind 4",
-            "Docker",
-            "AWS",
-        ],
-        links: [
-            {
-                label: "Backend",
-                href: "https://github.com/AmnerL/compliance-hub",
-            },
-            {
-                label: "Frontend",
-                href: "https://github.com/AmnerL/compliance-hub-front",
-            },
-        ],
-    },
-    {
-        id: "ezpark",
-        index: "02",
-        title: "EzPark",
-        subtitle: "Plataforma de Estacionamiento P2P",
-        description:
-            "Plataforma web para conectar conductores con propietarios de cocheras. Lideré el diseño de la arquitectura de microservicios del backend, incluyendo un agente conversacional con IA que permite consultar disponibilidad y ejecutar acciones en lenguaje natural.",
-        pipeline: {
-            label: "Arquitectura de Microservicios",
-            steps: [
-                "Usuario → Agente ReAct (Gemini + LangChain4j)",
-                "Tool Calling → Ejecuta acciones sobre la BD",
-                "Apache Kafka → Comunicación asíncrona",
-                "Microservicios → Reservas, pagos, notificaciones",
-            ],
-        },
-        contributions: [
-            "Arquitectura completa de microservicios con Java y Spring Boot.",
-            "Agente conversacional con IA (Gemini + LangChain4j) usando patrón ReAct y Tool Calling.",
-            "Comunicación asíncrona con Apache Kafka para reservas y notificaciones en tiempo real.",
-            "Dockerización de cada microservicio y despliegue en AWS EC2 con API Gateway.",
-        ],
-        techs: [
-            "Java 21",
-            "Spring Boot",
-            "Apache Kafka",
-            "Gemini",
-            "LangChain4j",
-            "Docker",
-            "AWS EC2",
-            "PostgreSQL",
-        ],
-        links: [],
-    },
+import { ArrowUpRight } from "@lucide/astro";
+import ComplianceFlow from "./ComplianceFlow.astro";
+const complianceTechs = ["Java 21", "Spring Boot 3.5.14", "Spring AI", "Gemini", "PostgreSQL", "pgvector", "React 19", "TypeScript", "Spring Security", "JWT"];
+const contributions = [
+  { title: "Indexación asíncrona de PDFs", text: "Extracción de texto y fragmentación con Spring AI, conservando metadatos del documento y la página cuando está disponible." },
+  { title: "Consulta con contexto recuperado", text: "Búsqueda semántica en pgvector y composición de un prompt con la pregunta y los fragmentos relevantes para Gemini." },
+  { title: "Fuentes y consultas persistidas", text: "Construcción de las fuentes a partir de los fragmentos recuperados y guardado de la pregunta, la respuesta y esas fuentes." }
 ];
 ---
-
-<section id="projects" class="section-shell" aria-labelledby="projects-title">
-    <div class="site-container">
-        <header class="section-head" data-reveal>
-            <span class="section-kicker">Portafolio</span>
-            <h2 id="projects-title" class="section-title">Proyectos</h2>
-            <p class="section-subtitle">
-                Soluciones reales con arquitectura real. Cada proyecto documenta
-                el pipeline completo, las decisiones técnicas y el stack
-                utilizado.
-            </p>
-        </header>
-
-        <div class="project-ledger">
-            {
-                projects.map((p) => (
-                    <ProjectCase
-                        id={p.id}
-                        index={p.index}
-                        title={p.title}
-                        subtitle={p.subtitle}
-                        description={p.description}
-                        pipeline={p.pipeline}
-                        contributions={p.contributions}
-                        techs={p.techs}
-                        links={p.links}
-                    />
-                ))
-            }
+<section id="projects" class="projects section" aria-labelledby="projects-title">
+  <div class="container">
+    <h2 id="projects-title">Proyectos seleccionados</h2>
+    <article id="compliance-hub" class="featured-project">
+      <div class="featured-grid">
+        <div class="featured-copy">
+          <h3>Compliance Hub</h3>
+          <h4>Gestión documental y consultas con IA</h4>
+          <div class="project-meta">
+            <p>Personal · Desarrollo individual<br />Mayo — Agosto 2026</p>
+            <p class="project-state">Funcional · Sin despliegue público</p>
+          </div>
+          <p>Proyecto personal para gestionar documentos normativos y consultarlos en lenguaje natural. Implementé un flujo que recupera fragmentos relevantes y los utiliza como contexto para generar respuestas con Gemini.</p>
+          <ul class="tech-list" aria-label="Tecnologías de Compliance Hub">
+            {complianceTechs.map(tech => <li>{tech}</li>)}
+          </ul>
+          <div class="project-links">
+            <a class="text-link" href="https://github.com/AmnerL/compliance-hub" target="_blank" rel="noopener noreferrer">Código backend <ArrowUpRight size={17} aria-hidden="true" /><span class="sr-only"> (abre otra pestaña)</span></a>
+            <a class="text-link" href="https://github.com/AmnerL/compliance-hub-front" target="_blank" rel="noopener noreferrer">Código frontend <ArrowUpRight size={17} aria-hidden="true" /><span class="sr-only"> (abre otra pestaña)</span></a>
+          </div>
         </div>
-    </div>
+        <ComplianceFlow />
+      </div>
+      <div class="project-contributions" aria-label="Aportes técnicos de Compliance Hub">
+        {contributions.map(item => (
+          <div><h4>{item.title}</h4><p>{item.text}</p></div>
+        ))}
+      </div>
+    </article>
+    <article id="ezpark" class="compact-project">
+      <div class="compact-project-heading">
+        <h3>EzPark</h3>
+        <p class="project-period">Mayo — Julio 2025 · Extensión IA: junio 2026</p>
+      </div>
+      <p class="project-context">Proyecto académico · Equipo de cuatro integrantes · Despliegue académico en AWS EC2</p>
+      <p>Plataforma para conectar conductores con propietarios de estacionamientos.</p>
+      <div class="ezpark-contributions">
+        <div><h4>Backend</h4><p>Fui el principal responsable del backend dentro del equipo. Trabajé en la migración de un monolito modular a servicios con Java 17, Spring Boot, Spring Cloud, PostgreSQL y Kafka. Parte de la comunicación seguía siendo síncrona.</p></div>
+        <div><h4>IA</h4><p>La extensión con Gemini, LangChain4j y Tool Calling consultaba disponibilidad y ayudaba a seleccionar estacionamientos.</p></div>
+        <div><h4>Despliegue académico</h4><p>Práctica de despliegue con Docker y AWS EC2.</p></div>
+      </div>
+      <a class="text-link" href="https://github.com/orgs/AltixOrganization/repositories" target="_blank" rel="noopener noreferrer">Repositorios del equipo <ArrowUpRight size={17} aria-hidden="true" /><span class="sr-only"> (abre otra pestaña)</span></a>
+    </article>
+    <article class="research-project">
+      <h3>SAT-Deserción</h3>
+      <p class="project-context">Investigación académica · Tesis en desarrollo</p>
+      <p>El objetivo es diseñar un sistema de alerta temprana para estudiar la deserción universitaria mediante árboles de decisión y regresión logística. Actualmente trabajo en preparación de datos, análisis exploratorio y diseño de la solución.</p>
+      <p class="project-period">Python · pandas · scikit-learn · Streamlit</p>
+    </article>
+  </div>
 </section>

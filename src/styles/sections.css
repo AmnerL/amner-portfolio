@@ -1,0 +1,86 @@
+/* Section composition follows the content: brief introduction, featured work,
+   vertical experience, compact technology groups and parallel education. */
+.about-section { padding-block: clamp(2.5rem, 4vw, 3.5rem); }
+.about-section h2 { font-size: clamp(1.7rem, 2.5vw, 2.25rem); margin-bottom: 1rem; }
+.about-copy { max-width: 68ch; color: var(--muted); font-size: clamp(1.1rem, 1.5vw, 1.25rem); margin-bottom: 0; }
+.projects { background: var(--color-surface); }
+.projects > .container > h2 { margin-bottom: 2rem; }
+.featured-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 2rem; align-items: start; }
+.featured-copy h3 { font-size: clamp(2rem, 3.4vw, 2.75rem); margin-bottom: .6rem; }
+.featured-copy h4 { font-size: 1.25rem; line-height: 1.4; margin-bottom: 1.25rem; max-width: none; }
+.featured-copy > p { color: var(--muted); }
+.project-meta { margin-bottom: 1.25rem; }
+.project-meta p, .project-context, .project-period { color: var(--muted); font-size: .85rem; }
+.project-meta p { margin-bottom: .5rem; }
+.project-state::before { content: ""; display: inline-block; width: .35rem; height: .35rem; border-radius: 50%; background: var(--accent); margin-right: .5rem; vertical-align: middle; }
+.tech-list { list-style: none; padding: 0; margin: 1.25rem 0; display: flex; gap: .4rem 1rem; flex-wrap: wrap; color: var(--ink); font-size: .85rem; }
+.tech-list li { padding-block: .15rem; border: 0; }
+.project-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.project-contributions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+.project-contributions h4 { font-size: 1.1rem; line-height: 1.35; margin-bottom: .6rem; max-width: none; }
+.project-contributions p { color: var(--muted); font-size: .925rem; margin-bottom: 0; }
+.compact-project, .research-project { border-top: 1px solid var(--rule); padding-top: 1.75rem; margin-top: 2rem; }
+.compact-project-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 2rem; justify-content: space-between; }
+.compact-project h3, .research-project h3 { margin-bottom: .5rem; }
+.compact-project > p:not(.project-context), .research-project > p { max-width: 68ch; color: var(--muted); }
+.compact-project .project-context, .research-project .project-context { margin-bottom: 1rem; }
+.research-project > p:last-child { margin-bottom: 0; }
+
+.experience-section > h2 { margin-bottom: 1.75rem; }
+.experience-heading { display: flex; align-items: baseline; gap: 1rem 2rem; flex-wrap: wrap; justify-content: space-between; padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule); }
+.experience-heading h3 { font-size: clamp(1.75rem, 3vw, 2.4rem); margin-bottom: .5rem; }
+.experience-role, .experience-dates { margin-bottom: 0; color: var(--muted); font-size: .925rem; }
+.experience-intro { color: var(--muted); margin-top: 1.25rem; margin-bottom: 1.5rem; }
+.experience-contributions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; }
+.experience-contributions h4 { font-size: 1.15rem; max-width: none; margin-bottom: .5rem; }
+.experience-contributions p { color: var(--muted); margin-bottom: 0; max-width: 68ch; }
+.honest-note { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 1.5rem; max-width: 70ch; margin-bottom: 0; }
+
+.technology-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; }
+.technology-group { padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+.technology-group h3 { font-size: 1.3rem; margin-bottom: 1rem; }
+.technology-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.technology-group li { display: grid; gap: .25rem; }
+.technology-group li > span { max-width: 68ch; font-size: .95rem; color: var(--ink); }
+.technology-group small { color: var(--muted); font-size: .8rem; }
+
+.education { background: var(--color-surface); }
+.education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+.education-grid article + article { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+.education-grid h3 { font-size: 1.3rem; line-height: 1.35; margin-bottom: .6rem; }
+.education-grid p { color: var(--muted); margin-bottom: .5rem; font-size: .925rem; }
+
+.contact { border-bottom: 1px solid var(--rule); }
+.contact-layout { display: grid; gap: 1.25rem; }
+.contact-intro h2 { margin-bottom: 1rem; }
+.contact-intro p { color: var(--muted); margin-bottom: .6rem; }
+.contact-intro .lead { color: var(--ink); }
+.contact-body { max-width: 68ch; }
+.email-row { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1.25rem; }
+.email { font-size: clamp(1.05rem, 2.2vw, 1.6rem); overflow-wrap: anywhere; margin: 0; min-width: 0; }
+.copy-button:disabled { opacity: .6; cursor: wait; }
+#copy-status { color: var(--muted); font-size: .9rem; min-height: 1.5rem; margin-block: .5rem; max-width: 65ch; }
+.channels { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+
+@media (max-width: 63.999rem) {
+  .featured-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .featured-copy > p { max-width: 68ch; }
+}
+@media (max-width: 47.999rem) {
+  .project-contributions, .technology-grid, .education-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .featured-copy h3 { font-size: 2rem; }
+  .compact-project-heading { display: block; }
+  .compact-project-heading .project-period { margin-bottom: .75rem; }
+  .project-contributions { gap: 1.25rem; }
+  .education-grid { gap: 2rem; }
+  .experience-heading { gap: .75rem; }
+  .experience-contributions { grid-template-columns: 1fr; gap: 1.25rem; }
+  .email-row { gap: .75rem; }
+}
+
+.ezpark-contributions { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 2rem; margin: 1.25rem 0; }
+.ezpark-contributions h4 { font-size: 1.1rem; margin-bottom: .5rem; }
+.ezpark-contributions p { color: var(--muted); font-size: .925rem; margin-bottom: 0; }
+@media (max-width: 47.999rem) {
+ .ezpark-contributions { grid-template-columns: 1fr; gap: 1rem; }
+}

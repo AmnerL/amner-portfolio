@@ -1,0 +1,28 @@
+---
+const contributions = [
+  { title: "Capacitaciones y evaluaciones", text: "Desarrollé cursos, materiales en AWS S3 y evaluaciones con intentos, plazos y ponderaciones. Las preguntas objetivas admitían calificación automática." },
+  { title: "Asistencia y reglas de planilla", text: "Participé en reglas de asistencia, horas extra y componentes salariales. El cálculo mensual de planillas fue un trabajo colaborativo." },
+  { title: "Liquidaciones", text: "Desarrollé una secuencia de validaciones y cálculos que reutilizaba CTS y gratificación, con generación del documento de liquidación en PDF mediante Thymeleaf." },
+  { title: "Búsqueda reutilizable", text: "Implementé y refactoricé consultas con JPA Criteria API, Strategy y Factory: filtros dinámicos, paginación, ordenamiento, joins y visibilidad de datos por jerarquía." }
+];
+---
+<section id="experience" class="container section experience-section" aria-labelledby="experience-title">
+  <h2 id="experience-title">Experiencia profesional</h2>
+  <div class="experience-heading">
+    <div>
+      <h3>Turismo CIVA</h3>
+      <p class="experience-role">Desarrollador de Software · Lima, Perú</p>
+    </div>
+    <p class="experience-dates">Diciembre 2024 — Septiembre 2025</p>
+  </div>
+  <p class="experience-intro">Desarrollo de funcionalidades para un sistema de gestión de recursos humanos, con Java y Spring Boot.</p>
+  <div class="experience-contributions">
+    {contributions.map(item => (
+      <article>
+        <h4>{item.title}</h4>
+        <p>{item.text}</p>
+      </article>
+    ))}
+  </div>
+  <p class="honest-note">Trabajadores, asistencia y capacitaciones recibieron validación de Recursos Humanos. El procesamiento de planillas continuaba en pruebas.</p>
+</section>

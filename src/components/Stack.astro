@@ -1,146 +1,37 @@
 ---
-/**
- * Stack.astro
- * Tech stack in "sheet" format (specification sheet).
- * Layout: rows with category on the left, tags on the right.
- * No cards, no hover, no glow, no simple-icons icons.
- * Typography, borders and information density only.
- */
-import {
-  Server,
-  BrainCircuit,
-  MonitorSmartphone,
-  Database,
-  Cloud,
-  Wrench,
-} from "@lucide/astro";
-
-const categories = [
-  {
-    Icon: Server,
-    title: "Backend & Arquitectura",
-    techs: [
-      "Java 17 / 21",
-      "Spring Boot 3.2",
-      "Spring Cloud",
-      "Spring Security",
-      "JPA / Hibernate",
-      "Apache Kafka",
-      "API Gateway",
-      "Maven",
-      "Microservicios",
-      "Arq. Hexagonal",
-      "DDD",
-      "Node.js",
-    ],
-  },
-  {
-    Icon: BrainCircuit,
-    title: "IA Generativa",
-    techs: [
-      "Spring AI",
-      "LangChain4j",
-      "RAG",
-      "Gemini",
-      "IBM watsonx",
-      "Hugging Face",
-      "Prompt Engineering",
-      "Agentes ReAct",
-      "Tool Calling",
-      "Embeddings",
-    ],
-  },
-  {
-    Icon: Database,
-    title: "Bases de Datos",
-    techs: [
-      "PostgreSQL",
-      "pgvector",
-      "Oracle · PL/SQL",
-      "SQL Server",
-      "MySQL",
-      "MongoDB",
-      "Data Warehouse",
-    ],
-  },
-  {
-    Icon: Cloud,
-    title: "Cloud & DevOps",
-    techs: [
-      "AWS · EC2 · S3",
-      "Docker",
-      "Git · GitHub",
-      "Linux · Red Hat",
-      "Jenkins · CI/CD",
-      "JUnit 5",
-      "Mockito",
-      "Postman",
-    ],
-  },
-  {
-    Icon: MonitorSmartphone,
-    title: "Frontend",
-    techs: [
-      "React 19",
-      "TypeScript",
-      "Redux Toolkit",
-      "Tailwind CSS 4",
-      "Angular 11+",
-      "Astro",
-      "Vite",
-    ],
-  },
-  {
-    Icon: Wrench,
-    title: "Herramientas & Métodos",
-    techs: [
-      "Scrum",
-      "Jira",
-      "Swagger / OpenAPI",
-      "Thymeleaf",
-      "Bitbucket",
-      "Trello",
-    ],
-  },
+const groups = [
+  { title: "Backend y datos", entries: [
+    { tech: "Java · Spring Boot · Spring Data JPA · Hibernate", context: "Experiencia profesional y proyectos" },
+    { tech: "PostgreSQL · SQL · APIs REST · JPA Criteria API", context: "Experiencia profesional" },
+    { tech: "Spring Security · JWT", context: "Proyecto personal" }
+  ]},
+  { title: "Frontend", entries: [
+    { tech: "React · TypeScript · JavaScript", context: "Experiencia profesional y proyecto personal" },
+    { tech: "Redux Toolkit · Material UI", context: "Experiencia profesional" }
+  ]},
+  { title: "IA aplicada", entries: [
+    { tech: "Spring AI · Gemini · RAG · Embeddings · pgvector", context: "Proyecto personal" },
+    { tech: "LangChain4j · Tool Calling", context: "Práctica académica" },
+    { tech: "Python · pandas · scikit-learn · Streamlit", context: "Investigación académica en desarrollo" }
+  ]},
+  { title: "Herramientas e infraestructura", entries: [
+    { tech: "JUnit · Mockito · Git · AWS S3 · Thymeleaf (generación de documentos PDF)", context: "Experiencia profesional" },
+    { tech: "Spring Cloud · Kafka · Docker · AWS EC2", context: "Práctica académica" }
+  ]}
 ];
 ---
-
-<section
-  id="stack"
-  class="section-shell section-shell--raised"
-  aria-labelledby="stack-title"
->
-  <div class="site-container">
-    <header class="section-head" data-reveal>
-      <span class="section-kicker">Tecnologías</span>
-      <h2 id="stack-title" class="section-title">Stack Técnico</h2>
-      <p class="section-subtitle">
-        Herramientas con las que construyo sistemas distribuidos, pipelines de
-        IA y aplicaciones empresariales de alta concurrencia.
-      </p>
-    </header>
-
-    <div class="stack-sheet">
-      {
-        categories.map(({ Icon, title, techs }) => (
-          <div class="stack-row">
-            <div class="stack-row__head">
-              <Icon
-                size={18}
-                stroke-width={1.5}
-                class="stack-row__icon"
-                aria-hidden="true"
-              />
-              <span>{title}</span>
-            </div>
-            <ul class="tech-list">
-              {techs.map((t) => (
-                <li class="tech-tag">{t}</li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
+<section id="stack" class="container section" aria-labelledby="stack-title">
+  <h2 id="stack-title">Tecnologías</h2>
+  <div class="technology-grid">
+    {groups.map(group => (
+      <div class="technology-group">
+        <h3>{group.title}</h3>
+        <ul>
+          {group.entries.map(entry => (
+            <li><span>{entry.tech}</span><small>{entry.context}</small></li>
+          ))}
+        </ul>
+      </div>
+    ))}
   </div>
 </section>

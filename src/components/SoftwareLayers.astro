@@ -1,0 +1,52 @@
+<figure class="software-figure" aria-labelledby="layers-caption">
+  <svg class="software-art" viewBox="0 0 640 600" role="img" aria-labelledby="layers-title layers-description">
+    <title id="layers-title">Tres capas de software en perspectiva</title>
+    <desc id="layers-description">Datos como base, lógica de negocio en el centro y API como interfaz. Ilustración conceptual.</desc>
+    <defs>
+      <linearGradient id="plane-surface" x1="0" y1="0" x2="1" y2="1">
+        <stop class="plane-stop-top" offset="0" />
+        <stop class="plane-stop-bottom" offset="1" />
+      </linearGradient>
+      <filter id="plane-shadow" x="-30%" y="-30%" width="160%" height="180%">
+        <feDropShadow dx="0" dy="16" stdDeviation="14" class="plane-shadow" />
+      </filter>
+    </defs>
+    <path class="layer-guides" d="M95 183V403 M340 75V295 M554 192V412" />
+    <g transform="translate(0 220)">
+      <g class="layer-motion" data-layer="data">
+        <path class="plane-edge" d="M80 170 340 65 570 185 305 295V306L80 181Z M305 295 570 185V196L305 306Z" />
+        <path class="plane-face" d="M80 170 340 65 570 185 305 295Z" />
+        <g class="plane-detail">
+          <path d="M183 158 266 124 365 175 283 211Z M201 181 283 147 383 198 300 232Z M219 204 300 170 400 221 318 255Z" />
+          <path d="M183 158V170 M266 124V136 M365 175V187 M283 211V223" />
+        </g>
+        <text class="plane-label" x="460" y="237" transform="rotate(-23 460 237)">DATOS</text>
+      </g>
+    </g>
+    <g transform="translate(0 110)">
+      <g class="layer-motion" data-layer="logic">
+        <path class="plane-edge" d="M80 170 340 65 570 185 305 295V306L80 181Z M305 295 570 185V196L305 306Z" />
+        <path class="plane-face" d="M80 170 340 65 570 185 305 295Z" />
+        <g class="plane-detail" transform="translate(28 42)">
+          <path d="m180 171 70-28 63 33 70-28 M250 143V119 M313 176V201" />
+          <path d="m163 173 17-7 17 9-17 7Z m70-31 17-7 17 9-17 7Z m63 33 17-7 17 9-17 7Z m70-28 17-7 17 9-17 7Z" />
+        </g>
+        <text class="plane-label" x="388" y="267" transform="rotate(-23 388 267)">LÓGICA DE NEGOCIO</text>
+      </g>
+    </g>
+    <g>
+      <g class="layer-motion" data-layer="api">
+        <path class="plane-edge" d="M80 170 340 65 570 185 305 295V306L80 181Z M305 295 570 185V196L305 306Z" />
+        <path class="plane-face" d="M80 170 340 65 570 185 305 295Z" />
+        <g class="plane-detail">
+          <path d="m263 125-47 19 41 22 M338 164l47-19-42-22 M281 178l34-58" />
+          <path class="api-route" d="m180 196 45-18 64 33 53-22 54 28" />
+          <circle cx="180" cy="196" r="3" />
+          <circle cx="396" cy="217" r="3" />
+        </g>
+        <text class="plane-label" x="471" y="232" transform="rotate(-23 471 232)">API</text>
+      </g>
+    </g>
+  </svg>
+  <figcaption id="layers-caption">De los datos a una API.<br /><span>La lógica de negocio conecta las capas.</span></figcaption>
+</figure>
