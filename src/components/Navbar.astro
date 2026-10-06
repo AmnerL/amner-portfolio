@@ -1,146 +1,55 @@
 ---
-/**
- * Navbar.astro
- * Sticky navigation bar with a "tech-nav" style (Hallmark).
- * - Sticky with border-bottom + backdrop-filter (no scroll JS).
- * - Solid wordmark (no gradient).
- * - Simple text links + command-trigger for CV.
- * - Mobile: hamburger → simple overlay (no stagger).
- */
-import { Menu, X, Download } from "@lucide/astro";
-
-const navLinks = [
-    { label: "Sobre Mí", href: "#about" },
-    { label: "Proyectos", href: "#projects" },
-    { label: "Stack", href: "#stack" },
-    { label: "Trayectoria", href: "#journey" },
-    { label: "Contacto", href: "#contact" },
-];
+import { Menu, X } from "@lucide/astro";
+const links=[{href:"#about",label:"Sobre mí"},{href:"#projects",label:"Proyectos"},{href:"#experience",label:"Experiencia"},{href:"#stack",label:"Tecnologías"},{href:"#journey",label:"Formación"},{href:"#contact",label:"Contacto"}];
 ---
-
-<header class="tech-nav">
-    <nav
-        class="tech-nav__inner site-container"
-        aria-label="Navegación principal"
-    >
-        <!-- Wordmark (no gradient) -->
-        <a href="#hero" class="wordmark" aria-label="Amner Levi — Inicio">
-            Amner<span class="wordmark__mark">Levi</span>
-        </a>
-
-        <!-- Desktop links + CV -->
-        <div class="nav-actions">
-            {
-                navLinks.map((link) => (
-                    <a
-                        href={link.href}
-                        class="text-[var(--color-muted)] text-sm font-medium no-underline transition-colors duration-[var(--dur-short)] hover:text-[var(--color-ink)] max-md:hidden"
-                    >
-                        {link.label}
-                    </a>
-                ))
-            }
-
-            <!-- CV as command-trigger -->
-            <a
-                href="/cv.pdf"
-                download
-                class="command-trigger"
-                aria-label="Descargar CV en PDF"
-            >
-                <Download size={15} aria-hidden="true" />
-                <span>CV</span>
-                <kbd>PDF</kbd>
-            </a>
-
-            <!-- Hamburger button (mobile) -->
-            <button
-                id="menu-toggle"
-                class="nav-menu-button"
-                aria-label="Abrir menú de navegación"
-                aria-expanded="false"
-                aria-controls="mobile-menu"
-            >
-                <Menu size={20} aria-hidden="true" />
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile overlay menu (no stagger) -->
-    <div
-        id="mobile-menu"
-        class="fixed inset-0 z-[var(--z-modal)] flex flex-col items-center justify-center gap-6 bg-[var(--color-paper)] md:hidden"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Menú de navegación"
-        hidden
-    >
-        {
-            navLinks.map((link) => (
-                <a
-                    href={link.href}
-                    class="font-[var(--font-display)] text-2xl font-semibold text-[var(--color-ink-soft)] no-underline transition-colors duration-[var(--dur-short)] hover:text-[var(--color-ink)]"
-                >
-                    {link.label}
-                </a>
-            ))
-        }
-
-        <!-- CV -->
-        <a
-            href="/cv.pdf"
-            download
-            class="mt-2 inline-flex items-center gap-2 font-[var(--font-display)] text-2xl font-semibold text-[var(--color-ink-soft)] no-underline transition-colors duration-[var(--dur-short)] hover:text-[var(--color-ink)]"
-        >
-            <Download size={22} aria-hidden="true" />
-            CV
-        </a>
-
-        <!-- Close button -->
-        <button
-            id="menu-close"
-            class="absolute top-5 right-5 flex h-10 w-10 items-center justify-center rounded-[var(--radius-control)] text-[var(--color-muted)] transition-colors duration-[var(--dur-short)] hover:bg-[var(--color-paper-raised)] hover:text-[var(--color-ink)]"
-            aria-label="Cerrar menú de navegación"
-        >
-            <X size={22} aria-hidden="true" />
-        </button>
-    </div>
+<header class="site-header">
+<nav class="container nav" aria-label="Navegación principal">
+<a class="wordmark" href="#hero" aria-label="Amner Levi, inicio">Amner<span>Levi.</span>
+</a>
+<div class="desktop-links">{links.map(l=>
+<a href={l.href}>{l.label}</a>)}</div>
+<button id="menu-toggle" class="menu-button" aria-controls="mobile-menu" aria-expanded="false" hidden>
+<Menu size={22} aria-hidden="true"/> Menú</button>
+</nav>
+<noscript>
+<nav class="container fallback-nav" aria-label="Secciones">{links.map(l=>
+<a href={l.href}>{l.label}</a>)}</nav>
+</noscript>
 </header>
-
+<dialog id="mobile-menu" aria-label="Menú de navegación">
+<div class="menu-head">
+<span>Amner Levi</span>
+<button id="menu-close" class="button">
+<X size={20} aria-hidden="true"/> Cerrar</button>
+</div>
+<nav aria-label="Navegación móvil">{links.map(l=>
+<a href={l.href}>{l.label}</a>)}</nav>
+<a class="button" href="/CV_Amner_Backend_Java.pdf" download>Descargar CV</a>
+</dialog>
 <script>
-    function initNavbar() {
-        const menuToggle = document.getElementById("menu-toggle");
-        const menuClose = document.getElementById("menu-close");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        if (!menuToggle || !menuClose || !mobileMenu) return;
-
-        const mobileLinks = Array.from(mobileMenu.querySelectorAll("a"));
-
-        const openMenu = () => {
-            mobileMenu.hidden = false;
-            document.body.style.overflow = "hidden";
-            menuToggle.setAttribute("aria-expanded", "true");
-            setTimeout(() => mobileLinks[0]?.focus(), 100);
-        };
-
-        const closeMenu = () => {
-            mobileMenu.hidden = true;
-            document.body.style.overflow = "";
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.focus();
-        };
-
-        menuToggle.addEventListener("click", openMenu);
-        menuClose.addEventListener("click", closeMenu);
-        mobileLinks.forEach((link) =>
-            link.addEventListener("click", closeMenu),
-        );
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && !mobileMenu.hidden) closeMenu();
-        });
-    }
-
-    initNavbar();
+const toggle=document.querySelector<HTMLButtonElement>("#menu-toggle");
+const menu=document.querySelector<HTMLDialogElement>("#mobile-menu");
+if(toggle && menu && typeof menu.showModal === "function") {
+toggle.hidden=false;
+let destination: HTMLElement | null = null;
+const close=()=>menu.close();
+toggle.addEventListener("click",()=>{menu.showModal();toggle.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";});
+document.querySelector("#menu-close")?.addEventListener("click",close);
+menu.addEventListener("keydown", (event) => {
+  if (event.key !== "Tab") return;
+  const controls = Array.from(menu.querySelectorAll<HTMLElement>('a[href], button:not(:disabled)'));
+  const first = controls[0];
+  const last = controls[controls.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last?.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first?.focus();
+  }
+});
+menu.addEventListener("close",()=>{toggle.setAttribute("aria-expanded","false");document.body.style.overflow="";if(destination){destination.tabIndex=-1;destination.focus({preventScroll:true});destination=null;}else{toggle.focus();}});
+menu.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(link=>link.addEventListener("click",()=>{destination=document.querySelector<HTMLElement>(link.hash);close();}));
+window.matchMedia("(min-width: 64rem)").addEventListener("change",e=>{if(e.matches && menu.open)close();});
+}
 </script>

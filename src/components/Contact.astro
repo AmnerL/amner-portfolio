@@ -1,234 +1,29 @@
 ---
-/**
- * Contact.astro
- * Closing / conversion section.
- * Original structure preserved: centered panel + email + channels.
- * Cleanup: no radial glow, no top gradient, no heavy hover effects.
- */
-import GithubIcon from "./icons/GithubIcon.astro";
-import LinkedinIcon from "./icons/LinkedinIcon.astro";
-import { Download, Mail, Copy, Check, ExternalLink } from "@lucide/astro";
-
-const EMAIL = "amnerlevi20@gmail.com";
-
-const channels = [
-    {
-        label: "LinkedIn",
-        handle: "linkedin.com/in/amnerls",
-        href: "https://linkedin.com/in/amnerls",
-        Icon: LinkedinIcon,
-    },
-    {
-        label: "GitHub",
-        handle: "github.com/AmnerL",
-        href: "https://github.com/AmnerL",
-        Icon: GithubIcon,
-    },
-];
+import { ArrowUpRight, Copy } from "@lucide/astro";
+const email = "amnerlevi20@gmail.com";
 ---
-
-<section
-    id="contact"
-    aria-labelledby="contact-title"
-    class="section-shell section-shell--dark"
->
-    <div class="site-container" style="max-width: 42rem;">
-        <!-- Panel -->
-        <div
-            data-reveal
-            class="rounded-[var(--radius-panel)] border border-[var(--color-rule-strong)] bg-[var(--color-paper-raised)] p-8 text-center md:p-12"
-        >
-            <!-- Section header -->
-            <span
-                class="section-kicker"
-                style="display: block; text-align: center;"
-            >
-                Contacto
-            </span>
-            <h2
-                id="contact-title"
-                class="section-title"
-                style="text-align: center;"
-            >
-                Hablemos
-            </h2>
-
-            <p
-                class="contact-copy"
-                style="margin-inline: auto; margin-top: var(--space-sm); text-align: center;"
-            >
-                ¿Buscas un ingeniero que domine el backend de alta concurrencia,
-                la IA generativa y el sector financiero? Hablemos de cómo puedo
-                aportar a tu equipo.
-            </p>
-
-            <!-- ── CTAs ── -->
-            <div
-                class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-            >
-                <!-- Primary CTA: Download CV -->
-                <a href="/cv.pdf" download class="button-primary">
-                    <Download size={16} aria-hidden="true" />
-                    Descargar CV
-                </a>
-
-                <!-- Compound control: email + copy button -->
-                <div
-                    class="inline-flex w-full overflow-hidden rounded-[var(--radius-control)] border border-[var(--color-rule-strong)] bg-[var(--color-paper)] sm:w-auto"
-                >
-                    <a
-                        href={`mailto:${EMAIL}`}
-                        class="flex flex-1 items-center justify-center gap-2 px-5 py-3 text-sm text-[var(--color-ink)] transition-colors duration-200 hover:bg-[var(--color-paper-raised)] sm:flex-none"
-                    >
-                        <Mail
-                            size={16}
-                            aria-hidden="true"
-                            class="shrink-0 text-[var(--color-accent)]"
-                        />
-                        <span class="truncate font-[var(--font-mono)]"
-                            >{EMAIL}</span
-                        >
-                    </a>
-                    <span
-                        class="w-px self-stretch bg-[var(--color-rule)]"
-                        aria-hidden="true"></span>
-                    <button
-                        id="copy-email"
-                        type="button"
-                        aria-label="Copiar correo al portapapeles"
-                        class="flex items-center justify-center px-3.5 text-[var(--color-muted)] transition-colors duration-200 hover:bg-[var(--color-paper-raised)] hover:text-[var(--color-ink)]"
-                    >
-                        <span id="copy-icon" class="flex">
-                            <Copy size={16} aria-hidden="true" />
-                        </span>
-                        <span
-                            id="check-icon"
-                            class="hidden text-[var(--color-success)]"
-                        >
-                            <Check size={16} aria-hidden="true" />
-                        </span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Copy feedback (accessible) -->
-            <span
-                id="copy-feedback"
-                role="status"
-                aria-live="polite"
-                class="mt-2 block text-xs font-medium text-[var(--color-success)] transition-opacity duration-200"
-                style="opacity: 0;"></span>
-
-            <!-- ── Divider ── -->
-            <div class="mt-8 flex items-center gap-4" aria-hidden="true">
-                <span class="h-px flex-1 bg-[var(--color-rule)]"></span>
-                <span
-                    class="text-xs font-medium uppercase tracking-widest text-[var(--color-muted)]"
-                >
-                    También me encuentras en
-                </span>
-                <span class="h-px flex-1 bg-[var(--color-rule)]"></span>
-            </div>
-
-            <!-- ── Channel cards ── -->
-            <div
-                class="mx-auto mt-6 grid max-w-md grid-cols-1 gap-4 sm:grid-cols-2"
-            >
-                {
-                    channels.map(({ label, handle, href, Icon }) => (
-                        <a
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${label} — ${handle}`}
-                            class="group flex items-center gap-4 rounded-[var(--radius-control)] border border-[var(--color-rule)] bg-[var(--color-paper)] p-4 text-left transition-colors duration-200 hover:border-[var(--color-rule-strong)]"
-                        >
-                            <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-control)] border border-[var(--color-rule-strong)] text-[var(--color-accent)]">
-                                <Icon size={18} />
-                            </span>
-                            <span class="min-w-0 flex-1">
-                                <span class="block text-sm font-semibold text-[var(--color-ink)]">
-                                    {label}
-                                </span>
-                                <span class="block truncate text-xs text-[var(--color-muted)]">
-                                    {handle}
-                                </span>
-                            </span>
-                            <ExternalLink
-                                size={14}
-                                aria-hidden="true"
-                                class="shrink-0 text-[var(--color-muted)]"
-                            />
-                        </a>
-                    ))
-                }
-            </div>
-        </div>
+<section id="contact" class="contact section" aria-labelledby="contact-title">
+  <div class="container contact-layout">
+    <div class="contact-intro">
+      <h2 id="contact-title">Hablemos</h2>
+      <p class="lead">Oportunidades laborales y proyectos freelance.</p>
+      <p>Si necesitas desarrollar un backend con Java y Spring Boot o integrar IA en una aplicación, puedes escribirme.</p>
     </div>
+    <div class="contact-body">
+      <div class="email-row">
+        <a class="email text-link" href={`mailto:${email}`}>{email}<ArrowUpRight size={22} aria-hidden="true" /></a>
+        <button class="button copy-button" id="copy-email" type="button" hidden><Copy size={16} aria-hidden="true" /> Copiar correo</button>
+      </div>
+      <p id="copy-status" role="status" aria-live="polite"></p>
+      <div class="channels">
+        <a class="text-link" href="https://linkedin.com/in/amnerls" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={18} aria-hidden="true" /><span class="sr-only"> (abre otra pestaña)</span></a>
+        <a class="text-link" href="https://github.com/AmnerL" target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={18} aria-hidden="true" /><span class="sr-only"> (abre otra pestaña)</span></a>
+      </div>
+    </div>
+  </div>
 </section>
-
-<!-- ═══ SCRIPT: copy email to clipboard ═══ -->
 <script>
-    function initCopyEmail() {
-        const EMAIL = "amnerlevi20@gmail.com";
-        const btn = document.getElementById("copy-email");
-        const copyIcon = document.getElementById("copy-icon");
-        const checkIcon = document.getElementById("check-icon");
-        const feedback = document.getElementById("copy-feedback");
-
-        if (!btn || !copyIcon || !checkIcon || !feedback) return;
-
-        let resetTimer: ReturnType<typeof setTimeout>;
-
-        const fallbackCopy = (text: string) => {
-            const ta = document.createElement("textarea");
-            ta.value = text;
-            ta.style.position = "fixed";
-            ta.style.opacity = "0";
-            document.body.appendChild(ta);
-            ta.focus();
-            ta.select();
-            try {
-                document.execCommand("copy");
-            } catch {
-                /* no-op */
-            }
-            document.body.removeChild(ta);
-        };
-
-        const showCopied = () => {
-            copyIcon.classList.add("hidden");
-            checkIcon.classList.remove("hidden");
-            feedback.textContent = "¡Copiado!";
-            feedback.style.opacity = "1";
-
-            clearTimeout(resetTimer);
-            resetTimer = setTimeout(() => {
-                copyIcon.classList.remove("hidden");
-                checkIcon.classList.add("hidden");
-                feedback.style.opacity = "0";
-                setTimeout(() => {
-                    feedback.textContent = "";
-                }, 200);
-            }, 2000);
-        };
-
-        const copy = async () => {
-            try {
-                if (navigator.clipboard && window.isSecureContext) {
-                    await navigator.clipboard.writeText(EMAIL);
-                } else {
-                    fallbackCopy(EMAIL);
-                }
-                showCopied();
-            } catch {
-                fallbackCopy(EMAIL);
-                showCopied();
-            }
-        };
-
-        btn.addEventListener("click", copy);
-    }
-
-    initCopyEmail();
+const button = document.querySelector<HTMLButtonElement>("#copy-email");
+const status = document.querySelector<HTMLElement>("#copy-status");
+if(button && status) { button.hidden = false; button.addEventListener("click", async () => {button.disabled = true; try {if(!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable"); await navigator.clipboard.writeText("amnerlevi20@gmail.com"); status.textContent = "Correo copiado."; } catch {status.textContent = "No se pudo copiar. Selecciona el correo para copiarlo manualmente o pulsa el enlace para escribir."; } finally {button.disabled = false;} });}
 </script>
