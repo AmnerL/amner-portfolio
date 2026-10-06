@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T04:46:26.0706511Z",
+  "title": "Design System: Portafolio de Amner Levi",
+  "extensions": {
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos blancos cálidos."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Lectura hasta 68ch."
+      },
+      "project-title": {
+        "displayName": "Project title",
+        "purpose": "Nombres de proyectos."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Credenciales y fechas."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Presentación principal."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Acciones."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Títulos secundarios."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Introducciones."
+      },
+      "about-title": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "about-title"
+      },
+      "about-copy": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "about-copy"
+      },
+      "featured-subtitle": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "featured-subtitle"
+      },
+      "contribution-title": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "contribution-title"
+      },
+      "contribution-copy": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "contribution-copy"
+      },
+      "workflow-heading": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "workflow-heading"
+      },
+      "workflow-node": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "workflow-node"
+      },
+      "workflow-detail": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "workflow-detail"
+      },
+      "workflow-mobile-node": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "workflow-mobile-node"
+      },
+      "workflow-mobile-detail": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "workflow-mobile-detail"
+      },
+      "experience-title": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "experience-title"
+      },
+      "experience-contribution-title": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "experience-contribution-title"
+      },
+      "group-title": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "group-title"
+      },
+      "technology-entry": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "technology-entry"
+      },
+      "contact-email": {
+        "purpose": "Tamaño intencional de la composición implementada en sections.css.",
+        "displayName": "contact-email"
+      }
+    },
+    "breakpoints": [
+      {
+        "value": "63.999rem",
+        "name": "navigation-collapse"
+      },
+      {
+        "value": "47.999rem",
+        "name": "column-collapse"
+      },
+      {
+        "value": "23rem",
+        "name": "compact-actions"
+      }
+    ],
+    "motion": [
+      {
+        "value": "180ms",
+        "name": "feedback",
+        "purpose": "Fondo, texto y borde de botones."
+      },
+      {
+        "value": "450ms; stagger 45ms; translateY 12px to 0; opacity .85 to 1",
+        "name": "text-entrance",
+        "purpose": "Entrada desde 48rem sin movimiento reducido."
+      },
+      {
+        "value": "600ms; initial delay 90ms; stagger 60ms; translateY 18px to 0",
+        "name": "layer-entrance",
+        "purpose": "Entrada desde 48rem sin movimiento reducido."
+      },
+      {
+        "value": "18px; expand 360ms; return 280ms",
+        "name": "layer-separation",
+        "purpose": "Solo mouse, hover y puntero fino desde 64rem."
+      },
+      {
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "name": "ease-out",
+        "purpose": "Curva compartida del hero."
+      },
+      {
+        "name": "compliance-entrance",
+        "purpose": "Entrada única con IntersectionObserver al 15%; sin ocultar contenido y sin movimiento reducido.",
+        "value": "400ms; translateY 8px to 0; cubic-bezier(.16,1,.3,1)"
+      }
+    ],
+    "shadows": [
+      {
+        "value": "SVG feDropShadow dx=0 dy=16 stdDeviation=14; flood-color: color-mix(in srgb, var(--color-background) 75%, transparent)",
+        "name": "plane-shadow",
+        "purpose": "Separación conceptual de planos SVG."
+      }
+    ],
+    "scrim": {
+      "value": "color-mix(in srgb, var(--color-background) 80%, transparent)"
+    },
+    "fonts": {
+      "delivery": "self-hosted",
+      "stylesheet": "src/styles/fonts.css",
+      "directory": "public/fonts",
+      "fontDisplay": "swap"
+    },
+    "colorMeta": {
+      "background": {
+        "displayName": "Negro cálido",
+        "role": "neutral"
+      },
+      "surface": {
+        "displayName": "Carbón",
+        "role": "neutral"
+      },
+      "text": {
+        "displayName": "Blanco cálido",
+        "role": "neutral"
+      },
+      "text-secondary": {
+        "displayName": "Gris cálido",
+        "role": "neutral"
+      },
+      "accent": {
+        "displayName": "Ámbar",
+        "role": "primary"
+      },
+      "border": {
+        "displayName": "Línea cálida",
+        "role": "neutral"
+      }
+    },
+    "focus": {
+      "offset": "5px",
+      "value": "3px solid var(--color-accent)"
+    },
+    "heroMotion": {
+      "entranceMinWidth": "48rem",
+      "library": "motion/mini",
+      "hoverMinWidth": "64rem",
+      "mobile": "static",
+      "version": "14.0.0",
+      "restoreOn": [
+        "media preference change",
+        "viewport change",
+        "document hidden"
+      ],
+      "reducedMotion": "static",
+      "pointer": "mouse, fine, hover"
+    },
+    "palettePolicy": "Only six implemented primitives; no alternate ramps.",
+    "sectionComposition": {
+      "about": "compact paragraph",
+      "technology": "2x2 with context; unified React; merged tools/infrastructure",
+      "contact": "cohesive block",
+      "compliance": "40/60 split; six nodes in two rows; container query 34rem; DOM-ordered query with CSS counters hidden from AT and role=list; integrated answer and retrieved sources",
+      "order": [
+        "Hero",
+        "About",
+        "Projects",
+        "Experience",
+        "Stack",
+        "Journey",
+        "Contact"
+      ],
+      "styles": "src/styles/sections.css",
+      "experience": "two columns desktop, one mobile",
+      "education": "two columns",
+      "ezpark": "three distinct contributions: Backend, IA, Despliegue académico"
+    },
+    "complianceFlow": {
+      "containerThreshold": "34rem",
+      "nodeCount": 6,
+      "desktopPanelMeasurements": {
+        "at1440": "432px",
+        "at1280": "453px"
+      },
+      "rows": 2,
+      "cvDownload": "/CV_Amner_Backend_Java.pdf",
+      "detailSize": ".875rem",
+      "titleSize": "1rem",
+      "description": "Los documentos PDF se dividen en fragmentos y se indexan mediante embeddings en PostgreSQL con pgvector. La pregunta permite recuperar fragmentos relevantes. Gemini genera la respuesta a partir de la pregunta y ese contexto; las fuentes se obtienen de los fragmentos recuperados"
+    }
+  },
+  "components": [
+    {
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px;}.ds-button { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; min-height: 48px; padding: .8rem 1.1rem; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; font-size: .9rem; border-radius: .35rem; transition: background var(--motion-feedback), color var(--motion-feedback), border-color var(--motion-feedback); }\n.ds-button:hover { background: var(--color-surface); border-color: var(--muted); }\n.ds-button:active { transform: translateY(1px); }\n.ds-button.ds-primary { background: var(--accent); border-color: var(--accent); color: var(--color-on-accent); font-weight: 600; }\n.ds-button.ds-primary:hover { background: var(--ink); border-color: var(--ink); color: var(--color-on-accent); }@media(prefers-reduced-motion:reduce){.ds-preview *, .ds-preview *::before,.ds-preview *::after{transition:none!important;animation:none!important}}",
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "html": "<div class=\"ds-preview\"><a class=\"ds-button ds-primary\" href=\"#projects\">Ver proyectos</a></div>",
+      "description": "Acción ámbar con texto negro."
+    },
+    {
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px;}.ds-button { display: inline-flex; justify-content: center; align-items: center; gap: .65rem; min-height: 48px; padding: .8rem 1.1rem; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; font-size: .9rem; border-radius: .35rem; transition: background var(--motion-feedback), color var(--motion-feedback), border-color var(--motion-feedback); }\n.ds-button:hover { background: var(--color-surface); border-color: var(--muted); }\n.ds-button:active { transform: translateY(1px); }\n.ds-button.ds-primary { background: var(--accent); border-color: var(--accent); color: var(--color-on-accent); font-weight: 600; }\n.ds-button.ds-primary:hover { background: var(--ink); border-color: var(--ink); color: var(--color-on-accent); }@media(prefers-reduced-motion:reduce){.ds-preview *, .ds-preview *::before,.ds-preview *::after{transition:none!important;animation:none!important}}",
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "html": "<div class=\"ds-preview\"><a class=\"ds-button\" href=\"/CV_Amner_Backend_Java.pdf\">Descargar CV</a></div>",
+      "description": "Acción secundaria con borde cálido."
+    },
+    {
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px;}.ds-text-link{display:inline-flex;align-items:center;gap:.6rem;min-height:44px;color:var(--accent);text-decoration:underline;text-underline-offset:.3em}.ds-text-link:hover{color:var(--ink)}@media(prefers-reduced-motion:reduce){.ds-preview *, .ds-preview *::before,.ds-preview *::after{transition:none!important;animation:none!important}}",
+      "name": "Text link",
+      "kind": "custom",
+      "refersTo": "text-link",
+      "html": "<div class=\"ds-preview\"><a class=\"ds-text-link\" href=\"#contact\">Contacto</a></div>",
+      "description": "Enlace ámbar subrayado."
+    },
+    {
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px;}.ds-nav{display:flex;align-items:center;gap:1.5rem;min-height:4.5rem;border-bottom:1px solid var(--rule)}.ds-wordmark{font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:-.035em;text-decoration:none;color:inherit;margin-right:auto}.ds-wordmark span{color:var(--accent);margin-left:.25rem}.ds-nav-link{font-size:.875rem;color:var(--muted);text-decoration:none;padding:.7rem 0}.ds-nav-link:hover{color:var(--accent)}",
+      "description": "Marca cálida y enlaces discretos.",
+      "name": "Navigation",
+      "html": "<div class=\"ds-preview\"><nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#\">Amner<span>.</span></a><a class=\"ds-nav-link\" href=\"#projects\">Proyectos</a><a class=\"ds-nav-link\" href=\"#contact\">Contacto</a></nav></div>",
+      "kind": "nav"
+    },
+    {
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px;}.ds-feature { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-top: 2.5rem; padding-block: 1.25rem; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); text-decoration: none; }\n.ds-feature > span:first-child { color: var(--muted); font-size: .85rem; }\n.ds-feature strong { font-family: var(--font-display); font-size: 1.2rem; font-weight: 500; }\n.ds-feature > span:last-child { display: inline-flex; gap: .5rem; align-items: center; margin-left: auto; color: var(--accent); font-size: .9rem; }\n.ds-feature:hover strong { color: var(--accent); }@media(max-width:47.999rem){.ds-feature{gap:.5rem 1rem}.ds-feature>span:first-child{flex-basis:100%}.ds-feature>span:last-child{margin-left:0;font-size:.85rem}}",
+      "description": "Proyecto destacado sin banda ámbar.",
+      "name": "Feature row",
+      "html": "<div class=\"ds-preview\"><a class=\"ds-feature\" href=\"#compliance-hub\"><span>Proyecto personal · Java + IA</span><strong>Compliance Hub</strong><span>Explorar el proyecto</span></a></div>",
+      "kind": "custom"
+    },
+    {
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px;}.ds-software-figure { margin: 0; min-width: 0; }\n.ds-software-art { display: block; width: 100%; height: auto; overflow: visible; }\n.ds-plane-stop-top { stop-color: var(--color-surface); }\n.ds-plane-stop-bottom { stop-color: var(--color-background); }\n.ds-plane-shadow { flood-color: var(--color-shadow); }\n.ds-plane-face { fill: url(#ds-plane-surface); stroke: var(--color-border); stroke-width: 1.2; filter: url(#ds-plane-shadow); }\n.ds-plane-edge { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 1; }\n.ds-plane-detail { fill: none; stroke: var(--color-accent); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }\n.ds-plane-detail circle { fill: var(--color-accent); stroke: none; }\n.ds-api-route { stroke: var(--color-border); }\n.ds-plane-label { fill: var(--color-text-secondary); font-family: var(--font-body); font-size: 12px; letter-spacing: .08em; }\n.ds-layer-guides { fill: none; stroke: var(--color-border); stroke-width: 1; stroke-dasharray: 3 7; }\n.ds-layer-motion { transform-box: fill-box; transform-origin: center; }\n.ds-software-figure figcaption { margin-top: -.5rem; text-align: center; color: var(--ink); font-size: .85rem; line-height: 1.65; }\n.ds-software-figure figcaption span { color: var(--muted); }@media(max-width:47.999rem){.ds-software-figure{max-width:28rem;width:100%;margin-inline:auto}}",
+      "description": "SVG conceptual estático: datos, lógica de negocio y API.",
+      "name": "Software layers",
+      "html": "<div class=\"ds-preview\"><figure class=\"ds-software-figure\" aria-labelledby=\"layers-caption\">\n  <svg class=\"ds-software-art\" viewBox=\"0 0 640 600\" role=\"img\" aria-labelledby=\"layers-title layers-description\">\n    <title id=\"layers-title\">Tres capas de software en perspectiva</title>\n    <desc id=\"layers-description\">Datos como base, lógica de negocio en el centro y API como interfaz. Ilustración conceptual.</desc>\n    <defs>\n      <linearGradient id=\"ds-plane-surface\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n        <stop class=\"ds-plane-stop-top\" offset=\"0\" />\n        <stop class=\"ds-plane-stop-bottom\" offset=\"1\" />\n      </linearGradient>\n      <filter id=\"ds-plane-shadow\" x=\"-30%\" y=\"-30%\" width=\"160%\" height=\"180%\">\n        <feDropShadow dx=\"0\" dy=\"16\" stdDeviation=\"14\" class=\"ds-plane-shadow\" />\n      </filter>\n    </defs>\n    <path class=\"ds-layer-guides\" d=\"M95 183V403 M340 75V295 M554 192V412\" />\n    <g transform=\"translate(0 220)\">\n      <g class=\"ds-layer-motion\" data-layer=\"data\">\n        <path class=\"ds-plane-edge\" d=\"M80 170 340 65 570 185 305 295V306L80 181Z M305 295 570 185V196L305 306Z\" />\n        <path class=\"ds-plane-face\" d=\"M80 170 340 65 570 185 305 295Z\" />\n        <g class=\"ds-plane-detail\">\n          <path d=\"M183 158 266 124 365 175 283 211Z M201 181 283 147 383 198 300 232Z M219 204 300 170 400 221 318 255Z\" />\n          <path d=\"M183 158V170 M266 124V136 M365 175V187 M283 211V223\" />\n        </g>\n        <text class=\"ds-plane-label\" x=\"460\" y=\"237\" transform=\"rotate(-23 460 237)\">DATOS</text>\n      </g>\n    </g>\n    <g transform=\"translate(0 110)\">\n      <g class=\"ds-layer-motion\" data-layer=\"logic\">\n        <path class=\"ds-plane-edge\" d=\"M80 170 340 65 570 185 305 295V306L80 181Z M305 295 570 185V196L305 306Z\" />\n        <path class=\"ds-plane-face\" d=\"M80 170 340 65 570 185 305 295Z\" />\n        <g class=\"ds-plane-detail\" transform=\"translate(28 42)\">\n          <path d=\"m180 171 70-28 63 33 70-28 M250 143V119 M313 176V201\" />\n          <path d=\"m163 173 17-7 17 9-17 7Z m70-31 17-7 17 9-17 7Z m63 33 17-7 17 9-17 7Z m70-28 17-7 17 9-17 7Z\" />\n        </g>\n        <text class=\"ds-plane-label\" x=\"388\" y=\"267\" transform=\"rotate(-23 388 267)\">LÓGICA DE NEGOCIO</text>\n      </g>\n    </g>\n    <g>\n      <g class=\"ds-layer-motion\" data-layer=\"api\">\n        <path class=\"ds-plane-edge\" d=\"M80 170 340 65 570 185 305 295V306L80 181Z M305 295 570 185V196L305 306Z\" />\n        <path class=\"ds-plane-face\" d=\"M80 170 340 65 570 185 305 295Z\" />\n        <g class=\"ds-plane-detail\">\n          <path d=\"m263 125-47 19 41 22 M338 164l47-19-42-22 M281 178l34-58\" />\n          <path class=\"ds-api-route\" d=\"m180 196 45-18 64 33 53-22 54 28\" />\n          <circle cx=\"180\" cy=\"196\" r=\"3\" />\n          <circle cx=\"396\" cy=\"217\" r=\"3\" />\n        </g>\n        <text class=\"ds-plane-label\" x=\"471\" y=\"232\" transform=\"rotate(-23 471 232)\">API</text>\n      </g>\n    </g>\n  </svg>\n  <figcaption id=\"layers-caption\">De los datos a una API.<br /><span>La lógica de negocio conecta las capas.</span></figcaption>\n</figure>\n</div>",
+      "kind": "custom"
+    },
+    {
+      "kind": "custom",
+      "description": "Cómo funciona: seis nodos en dos rutas y adaptación por contenedor de 34rem, visible sin JavaScript.",
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview h3,.ds-preview h4{font-family:var(--font-display);font-weight:600;letter-spacing:-.025em;margin-top:0}.ds-preview p{line-height:1.65}.ds-preview a{color:var(--accent);text-underline-offset:.3em}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}\r\n  .ds-rag-diagram { container: compliance-flow / inline-size; margin: 0; padding: clamp(1.25rem, 2vw, 1.5rem); border: 1px solid var(--rule); border-radius: .75rem; background: var(--paper); min-width: 0; }\r\n  .ds-rag-diagram h4 { font-size: 1.25rem; line-height: 1.3; margin: 0 0 1.25rem; max-width: none; }\r\n  .ds-rag-stage { font-size: 1rem; font-weight: 600; margin: 0 0 .75rem; }\r\n  .ds-rag-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; list-style: none; padding: 0; margin: 0; }\r\n  .ds-rag-step { display: grid; position: relative; min-width: 0; }\r\n  .ds-rag-node { padding: .75rem; border: 1px solid var(--rule); border-radius: .75rem; background: var(--color-surface); min-width: 0; }\r\n  .ds-rag-node-title { display: flex; align-items: flex-start; gap: .5rem; }\r\n  .ds-rag-node-title > svg { color: var(--accent); flex-shrink: 0; margin-top: .1rem; }\r\n  .ds-rag-node strong { font-size: 1rem; font-weight: 500; line-height: 1.4; }\r\n  .ds-rag-node p { color: var(--muted); font-size: .875rem; line-height: 1.5; margin: .5rem 0 0; }\r\n  .ds-rag-arrow { position: absolute; width: 24px; height: 24px; right: -24px; top: calc(50% - 12px); }\r\n  .ds-rag-diagram svg path { fill: none; stroke: var(--accent); stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; }\r\n  .ds-rag-corridor { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 1.5rem; }\r\n  .ds-rag-corridor .ds-rag-stage { grid-column: 1; grid-row: 1; align-self: end; margin-bottom: .75rem; }\r\n  .ds-rag-base-link { grid-column: 2 / -1; grid-row: 1; width: 100%; height: 56px; }\r\n  .ds-rag-question { grid-column: 3; grid-row: 1; }\r\n  .ds-rag-context { grid-column: 2; grid-row: 1; }\r\n  .ds-rag-answer { grid-column: 1; grid-row: 1; }\r\n  .ds-rag-consultation { counter-reset: consultation-step; }\r\n  .ds-rag-consultation > li { counter-increment: consultation-step; }\r\n  .ds-rag-number::before { content: counter(consultation-step) \". \"; }\r\n  .ds-rag-consultation .ds-rag-arrow { right: auto; left: -24px; transform: rotate(180deg); }\r\n  .ds-rag-base-reference { display: none; }\r\n  @container compliance-flow (max-width: 34rem) {\r\n    .ds-rag-row { grid-template-columns: 1fr; gap: 2rem; }\r\n    .ds-rag-step { grid-column: 1; grid-row: auto; }\r\n    .ds-rag-arrow, .ds-rag-consultation .ds-rag-arrow { top: auto; bottom: -28px; right: calc(50% - 12px); left: auto; transform: rotate(90deg); }\r\n    .ds-rag-corridor { display: block; margin-top: 1.5rem; }\r\n    .ds-rag-corridor .ds-rag-stage { margin-bottom: .75rem; }\r\n    .ds-rag-base-link { display: none; }\r\n    .ds-rag-base-reference { display: block; }\r\n  }\r\n.ds-sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}",
+      "refersTo": "compliance-diagram",
+      "name": "Compliance flow",
+      "html": "<div class=\"ds-preview\"><figure class=\"ds-rag-diagram\" aria-labelledby=\"ds-rag-title\" aria-describedby=\"ds-rag-description\"><figcaption><h4 id=\"ds-rag-title\">Cómo funciona</h4></figcaption><p id=\"ds-rag-description\" class=\"ds-sr-only\">Los documentos PDF se dividen en fragmentos y se indexan mediante embeddings en PostgreSQL con pgvector. La pregunta permite recuperar fragmentos relevantes. Gemini genera la respuesta a partir de la pregunta y ese contexto; las fuentes se obtienen de los fragmentos recuperados</p><h5 class=\"ds-rag-stage\">Preparar documentos</h5><ol class=\"ds-rag-row ds-rag-preparation\"><li class=\"ds-rag-step\"><div class=\"ds-rag-node\"><div class=\"ds-rag-node-title\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 3h9l3 3v15H6zM14 3v5h4M9 12h6M9 16h6\"/></svg><strong>PDF</strong></div><p>Documento normativo</p></div><svg class=\"ds-rag-arrow\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M1 12h20m-5-5 5 5-5 5\"/></svg></li><li class=\"ds-rag-step\"><div class=\"ds-rag-node\"><div class=\"ds-rag-node-title\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 3h9l3 3v15H6zM14 3v5h4M9 12h6M9 16h6\"/></svg><strong>Procesar documento</strong></div><p>Fragmentos y embeddings</p></div><svg class=\"ds-rag-arrow\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M1 12h20m-5-5 5 5-5 5\"/></svg></li><li class=\"ds-rag-step\"><div class=\"ds-rag-node\"><div class=\"ds-rag-node-title\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 3h9l3 3v15H6zM14 3v5h4M9 12h6M9 16h6\"/></svg><strong>Base vectorial</strong></div><p>PostgreSQL · pgvector</p></div></li></ol><div class=\"ds-rag-corridor\"><h5 class=\"ds-rag-stage\">Consultar</h5><svg class=\"ds-rag-base-link\" viewBox=\"0 0 200 56\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M150 0v18H50v35m-4-5 4 5 4-5\"/></svg></div><ol class=\"ds-rag-row ds-rag-consultation\" role=\"list\"><li class=\"ds-rag-step ds-rag-question\"><div class=\"ds-rag-node\"><div class=\"ds-rag-node-title\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 3h9l3 3v15H6zM14 3v5h4M9 12h6M9 16h6\"/></svg><strong><span class=\"ds-rag-number\" aria-hidden=\"true\"></span>Pregunta</strong></div><p>Lenguaje natural</p></div><svg class=\"ds-rag-arrow\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M1 12h20m-5-5 5 5-5 5\"/></svg></li><li class=\"ds-rag-step ds-rag-context\"><div class=\"ds-rag-node\"><div class=\"ds-rag-node-title\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 3h9l3 3v15H6zM14 3v5h4M9 12h6M9 16h6\"/></svg><strong><span class=\"ds-rag-number\" aria-hidden=\"true\"></span>Recuperar contexto</strong></div><p>Búsqueda semántica</p><p class=\"ds-rag-base-reference\">Busca en la base vectorial anterior</p></div><svg class=\"ds-rag-arrow\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M1 12h20m-5-5 5 5-5 5\"/></svg></li><li class=\"ds-rag-step ds-rag-answer\"><div class=\"ds-rag-node\"><div class=\"ds-rag-node-title\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 3h9l3 3v15H6zM14 3v5h4M9 12h6M9 16h6\"/></svg><strong><span class=\"ds-rag-number\" aria-hidden=\"true\"></span>Respuesta y fuentes</strong></div><p>Gemini genera el texto; los fragmentos aportan las fuentes</p></div></li></ol></figure></div>"
+    },
+    {
+      "name": "Technology context",
+      "description": "Cuadrícula de grupos tecnológicos con contexto de experiencia.",
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview h3,.ds-preview h4{font-family:var(--font-display);font-weight:600;letter-spacing:-.025em;margin-top:0}.ds-preview p{line-height:1.65}.ds-preview a{color:var(--accent);text-underline-offset:.3em}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}/* Section composition follows the content: brief introduction, featured work,\r\n   vertical experience, compact technology groups and parallel education. */\r\n.ds-about-section { padding-block: clamp(2.5rem, 4vw, 3.5rem); }\r\n.ds-about-section h2 { font-size: clamp(1.7rem, 2.5vw, 2.25rem); margin-bottom: 1rem; }\r\n.ds-about-copy { max-width: 68ch; color: var(--muted); font-size: clamp(1.1rem, 1.5vw, 1.25rem); margin-bottom: 0; }\r\n.ds-projects { background: var(--color-surface); }\r\n.ds-projects > .ds-container > h2 { margin-bottom: 2rem; }\r\n.ds-featured-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 2rem; align-items: start; }\r\n.ds-featured-copy h3 { font-size: clamp(2rem, 3.4vw, 2.75rem); margin-bottom: .6rem; }\r\n.ds-featured-copy h4 { font-size: 1.25rem; line-height: 1.4; margin-bottom: 1.25rem; max-width: none; }\r\n.ds-featured-copy > p { color: var(--muted); }\r\n.ds-project-meta { margin-bottom: 1.25rem; }\r\n.ds-project-meta p, .ds-project-context, .ds-project-period { color: var(--muted); font-size: .85rem; }\r\n.ds-project-meta p { margin-bottom: .5rem; }\r\n.ds-project-state::before { content: \"\"; display: inline-block; width: .35rem; height: .35rem; border-radius: 50%; background: var(--accent); margin-right: .5rem; vertical-align: middle; }\r\n.ds-tech-list { list-style: none; padding: 0; margin: 1.25rem 0; display: flex; gap: .4rem 1rem; flex-wrap: wrap; color: var(--ink); font-size: .85rem; }\r\n.ds-tech-list li { padding-block: .15rem; border: 0; }\r\n.ds-project-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }\r\n.ds-project-contributions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }\r\n.ds-project-contributions h4 { font-size: 1.1rem; line-height: 1.35; margin-bottom: .6rem; max-width: none; }\r\n.ds-project-contributions p { color: var(--muted); font-size: .925rem; margin-bottom: 0; }\r\n.ds-compact-project, .ds-research-project { border-top: 1px solid var(--rule); padding-top: 1.75rem; margin-top: 2rem; }\r\n.ds-compact-project-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 2rem; justify-content: space-between; }\r\n.ds-compact-project h3, .ds-research-project h3 { margin-bottom: .5rem; }\r\n.ds-compact-project > p:not(.ds-project-context), .ds-research-project > p { max-width: 68ch; color: var(--muted); }\r\n.ds-compact-project .ds-project-context, .ds-research-project .ds-project-context { margin-bottom: 1rem; }\r\n.ds-research-project > p:last-child { margin-bottom: 0; }\r\n\r\n.ds-experience-section > h2 { margin-bottom: 1.75rem; }\r\n.ds-experience-heading { display: flex; align-items: baseline; gap: 1rem 2rem; flex-wrap: wrap; justify-content: space-between; padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule); }\r\n.ds-experience-heading h3 { font-size: clamp(1.75rem, 3vw, 2.4rem); margin-bottom: .5rem; }\r\n.ds-experience-role, .ds-experience-dates { margin-bottom: 0; color: var(--muted); font-size: .925rem; }\r\n.ds-experience-intro { color: var(--muted); margin-top: 1.25rem; margin-bottom: 1.5rem; }\r\n.ds-experience-contributions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; }\r\n.ds-experience-contributions h4 { font-size: 1.15rem; max-width: none; margin-bottom: .5rem; }\r\n.ds-experience-contributions p { color: var(--muted); margin-bottom: 0; max-width: 68ch; }\r\n.ds-honest-note { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 1.5rem; max-width: 70ch; margin-bottom: 0; }\r\n\r\n.ds-technology-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; }\r\n.ds-technology-group { padding-top: 1.25rem; border-top: 1px solid var(--rule); }\r\n.ds-technology-group h3 { font-size: 1.3rem; margin-bottom: 1rem; }\r\n.ds-technology-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }\r\n.ds-technology-group li { display: grid; gap: .25rem; }\r\n.ds-technology-group li > span { max-width: 68ch; font-size: .95rem; color: var(--ink); }\r\n.ds-technology-group small { color: var(--muted); font-size: .8rem; }\r\n\r\n.ds-education { background: var(--color-surface); }\r\n.ds-education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }\r\n.ds-education-grid article + article { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }\r\n.ds-education-grid h3 { font-size: 1.3rem; line-height: 1.35; margin-bottom: .6rem; }\r\n.ds-education-grid p { color: var(--muted); margin-bottom: .5rem; font-size: .925rem; }\r\n\r\n.ds-contact { border-bottom: 1px solid var(--rule); }\r\n.ds-contact-layout { display: grid; gap: 1.25rem; }\r\n.ds-contact-intro h2 { margin-bottom: 1rem; }\r\n.ds-contact-intro p { color: var(--muted); margin-bottom: .6rem; }\r\n.ds-contact-intro .ds-lead { color: var(--ink); }\r\n.ds-contact-body { max-width: 68ch; }\r\n.ds-email-row { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1.25rem; }\r\n.ds-email { font-size: clamp(1.05rem, 2.2vw, 1.6rem); overflow-wrap: anywhere; margin: 0; min-width: 0; }\r\n.ds-copy-button:disabled { opacity: .6; cursor: wait; }\r\n#copy-status { color: var(--muted); font-size: .9rem; min-height: 1.5rem; margin-block: .5rem; max-width: 65ch; }\r\n.ds-channels { display: flex; flex-wrap: wrap; gap: 1.5rem; }\r\n\r\n@media (max-width: 63.999rem) {\r\n  .ds-featured-grid { grid-template-columns: 1fr; gap: 1.75rem; }\r\n  .ds-featured-copy > p { max-width: 68ch; }\r\n}\r\n@media (max-width: 47.999rem) {\r\n  .ds-project-contributions, .ds-technology-grid, .ds-education-grid { grid-template-columns: 1fr; gap: 1.5rem; }\r\n  .ds-featured-copy h3 { font-size: 2rem; }\r\n  .ds-compact-project-heading { display: block; }\r\n  .ds-compact-project-heading .ds-project-period { margin-bottom: .75rem; }\r\n  .ds-project-contributions { gap: 1.25rem; }\r\n  .ds-education-grid { gap: 2rem; }\r\n  .ds-experience-heading { gap: .75rem; }\r\n  .ds-experience-contributions { grid-template-columns: 1fr; gap: 1.25rem; }\r\n  .ds-email-row { gap: .75rem; }\r\n}\r\n\r\n.ds-ezpark-contributions { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 2rem; margin: 1.25rem 0; }\r\n.ds-ezpark-contributions h4 { font-size: 1.1rem; margin-bottom: .5rem; }\r\n.ds-ezpark-contributions p { color: var(--muted); font-size: .925rem; margin-bottom: 0; }\r\n@media (max-width: 47.999rem) {\r\n .ds-ezpark-contributions { grid-template-columns: 1fr; gap: 1rem; }\r\n}\r\n",
+      "html": "<div class=\"ds-preview\"><div class=\"ds-technology-grid\"><section class=\"ds-technology-group\"><h3>Backend y datos</h3><ul><li><span>Java · Spring Boot</span><small>Experiencia profesional y proyectos</small></li><li><span>Spring Security · JWT</span><small>Proyecto personal</small></li></ul></section><section class=\"ds-technology-group\"><h3>Frontend</h3><ul><li><span>React · TypeScript</span><small>Experiencia profesional y proyecto personal</small></li></ul></section><section class=\"ds-technology-group\"><h3>IA aplicada</h3><ul><li><span>Spring AI · Gemini · RAG</span><small>Proyecto personal</small></li></ul></section><section class=\"ds-technology-group\"><h3>Herramientas e infraestructura</h3><ul><li><span>JUnit · Mockito · Git · AWS S3 · Thymeleaf (generación de documentos PDF)</span><small>Experiencia profesional</small></li></ul></section></div></div>",
+      "kind": "custom"
+    },
+    {
+      "name": "Education columns",
+      "description": "Estudios e idiomas en paralelo con certificaciones.",
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview h3,.ds-preview h4{font-family:var(--font-display);font-weight:600;letter-spacing:-.025em;margin-top:0}.ds-preview p{line-height:1.65}.ds-preview a{color:var(--accent);text-underline-offset:.3em}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}/* Section composition follows the content: brief introduction, featured work,\r\n   vertical experience, compact technology groups and parallel education. */\r\n.ds-about-section { padding-block: clamp(2.5rem, 4vw, 3.5rem); }\r\n.ds-about-section h2 { font-size: clamp(1.7rem, 2.5vw, 2.25rem); margin-bottom: 1rem; }\r\n.ds-about-copy { max-width: 68ch; color: var(--muted); font-size: clamp(1.1rem, 1.5vw, 1.25rem); margin-bottom: 0; }\r\n.ds-projects { background: var(--color-surface); }\r\n.ds-projects > .ds-container > h2 { margin-bottom: 2rem; }\r\n.ds-featured-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 2rem; align-items: start; }\r\n.ds-featured-copy h3 { font-size: clamp(2rem, 3.4vw, 2.75rem); margin-bottom: .6rem; }\r\n.ds-featured-copy h4 { font-size: 1.25rem; line-height: 1.4; margin-bottom: 1.25rem; max-width: none; }\r\n.ds-featured-copy > p { color: var(--muted); }\r\n.ds-project-meta { margin-bottom: 1.25rem; }\r\n.ds-project-meta p, .ds-project-context, .ds-project-period { color: var(--muted); font-size: .85rem; }\r\n.ds-project-meta p { margin-bottom: .5rem; }\r\n.ds-project-state::before { content: \"\"; display: inline-block; width: .35rem; height: .35rem; border-radius: 50%; background: var(--accent); margin-right: .5rem; vertical-align: middle; }\r\n.ds-tech-list { list-style: none; padding: 0; margin: 1.25rem 0; display: flex; gap: .4rem 1rem; flex-wrap: wrap; color: var(--ink); font-size: .85rem; }\r\n.ds-tech-list li { padding-block: .15rem; border: 0; }\r\n.ds-project-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }\r\n.ds-project-contributions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }\r\n.ds-project-contributions h4 { font-size: 1.1rem; line-height: 1.35; margin-bottom: .6rem; max-width: none; }\r\n.ds-project-contributions p { color: var(--muted); font-size: .925rem; margin-bottom: 0; }\r\n.ds-compact-project, .ds-research-project { border-top: 1px solid var(--rule); padding-top: 1.75rem; margin-top: 2rem; }\r\n.ds-compact-project-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 2rem; justify-content: space-between; }\r\n.ds-compact-project h3, .ds-research-project h3 { margin-bottom: .5rem; }\r\n.ds-compact-project > p:not(.ds-project-context), .ds-research-project > p { max-width: 68ch; color: var(--muted); }\r\n.ds-compact-project .ds-project-context, .ds-research-project .ds-project-context { margin-bottom: 1rem; }\r\n.ds-research-project > p:last-child { margin-bottom: 0; }\r\n\r\n.ds-experience-section > h2 { margin-bottom: 1.75rem; }\r\n.ds-experience-heading { display: flex; align-items: baseline; gap: 1rem 2rem; flex-wrap: wrap; justify-content: space-between; padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule); }\r\n.ds-experience-heading h3 { font-size: clamp(1.75rem, 3vw, 2.4rem); margin-bottom: .5rem; }\r\n.ds-experience-role, .ds-experience-dates { margin-bottom: 0; color: var(--muted); font-size: .925rem; }\r\n.ds-experience-intro { color: var(--muted); margin-top: 1.25rem; margin-bottom: 1.5rem; }\r\n.ds-experience-contributions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; }\r\n.ds-experience-contributions h4 { font-size: 1.15rem; max-width: none; margin-bottom: .5rem; }\r\n.ds-experience-contributions p { color: var(--muted); margin-bottom: 0; max-width: 68ch; }\r\n.ds-honest-note { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 1.5rem; max-width: 70ch; margin-bottom: 0; }\r\n\r\n.ds-technology-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; }\r\n.ds-technology-group { padding-top: 1.25rem; border-top: 1px solid var(--rule); }\r\n.ds-technology-group h3 { font-size: 1.3rem; margin-bottom: 1rem; }\r\n.ds-technology-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }\r\n.ds-technology-group li { display: grid; gap: .25rem; }\r\n.ds-technology-group li > span { max-width: 68ch; font-size: .95rem; color: var(--ink); }\r\n.ds-technology-group small { color: var(--muted); font-size: .8rem; }\r\n\r\n.ds-education { background: var(--color-surface); }\r\n.ds-education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }\r\n.ds-education-grid article + article { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }\r\n.ds-education-grid h3 { font-size: 1.3rem; line-height: 1.35; margin-bottom: .6rem; }\r\n.ds-education-grid p { color: var(--muted); margin-bottom: .5rem; font-size: .925rem; }\r\n\r\n.ds-contact { border-bottom: 1px solid var(--rule); }\r\n.ds-contact-layout { display: grid; gap: 1.25rem; }\r\n.ds-contact-intro h2 { margin-bottom: 1rem; }\r\n.ds-contact-intro p { color: var(--muted); margin-bottom: .6rem; }\r\n.ds-contact-intro .ds-lead { color: var(--ink); }\r\n.ds-contact-body { max-width: 68ch; }\r\n.ds-email-row { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1.25rem; }\r\n.ds-email { font-size: clamp(1.05rem, 2.2vw, 1.6rem); overflow-wrap: anywhere; margin: 0; min-width: 0; }\r\n.ds-copy-button:disabled { opacity: .6; cursor: wait; }\r\n#copy-status { color: var(--muted); font-size: .9rem; min-height: 1.5rem; margin-block: .5rem; max-width: 65ch; }\r\n.ds-channels { display: flex; flex-wrap: wrap; gap: 1.5rem; }\r\n\r\n@media (max-width: 63.999rem) {\r\n  .ds-featured-grid { grid-template-columns: 1fr; gap: 1.75rem; }\r\n  .ds-featured-copy > p { max-width: 68ch; }\r\n}\r\n@media (max-width: 47.999rem) {\r\n  .ds-project-contributions, .ds-technology-grid, .ds-education-grid { grid-template-columns: 1fr; gap: 1.5rem; }\r\n  .ds-featured-copy h3 { font-size: 2rem; }\r\n  .ds-compact-project-heading { display: block; }\r\n  .ds-compact-project-heading .ds-project-period { margin-bottom: .75rem; }\r\n  .ds-project-contributions { gap: 1.25rem; }\r\n  .ds-education-grid { gap: 2rem; }\r\n  .ds-experience-heading { gap: .75rem; }\r\n  .ds-experience-contributions { grid-template-columns: 1fr; gap: 1.25rem; }\r\n  .ds-email-row { gap: .75rem; }\r\n}\r\n\r\n.ds-ezpark-contributions { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 2rem; margin: 1.25rem 0; }\r\n.ds-ezpark-contributions h4 { font-size: 1.1rem; margin-bottom: .5rem; }\r\n.ds-ezpark-contributions p { color: var(--muted); font-size: .925rem; margin-bottom: 0; }\r\n@media (max-width: 47.999rem) {\r\n .ds-ezpark-contributions { grid-template-columns: 1fr; gap: 1rem; }\r\n}\r\n",
+      "html": "<div class=\"ds-preview\"><div class=\"ds-education-grid\"><div><article><h3>Ingeniería de Software</h3><p>Universidad Peruana de Ciencias Aplicadas · UPC</p><p>Finalización proyectada: julio de 2027.</p></article><article><h3>Idiomas</h3><p>Español nativo · Inglés A1, en formación.</p></article></div><div><article><h3>AWS Certified AI Practitioner</h3><p>Amazon Web Services</p><p>Emitida el 30 de septiembre de 2026.</p></article><article><h3>Databases for Data Scientists Specialization</h3><p>University of Colorado Boulder · Coursera</p></article></div></div></div>",
+      "kind": "custom"
+    },
+    {
+      "name": "Contact block",
+      "description": "Introducción, correo y canales en una composición cohesiva.",
+      "css": ".ds-preview{\n  --color-background: #0C0C0D;\n  --color-surface: #1A1A1D;\n  --color-text: #F7F2E8;\n  --color-text-secondary: #BBB6AD;\n  --color-accent: #F4B860;\n  --color-border: #48433B;\n  --color-on-accent: var(--color-background);\n  --color-shadow: color-mix(in srgb, var(--color-background) 75%, transparent);\n  --color-scrim: color-mix(in srgb, var(--color-background) 80%, transparent);\n\n  \n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-text-secondary);\n  --accent: var(--color-accent);\n  --rule: var(--color-border);\n  --dark: var(--color-surface);\n  --on-dark: var(--color-text);\n  --on-dark-muted: var(--color-text-secondary);\n  --font-display: \"Space Grotesk\", sans-serif;\n  --font-body: \"Inter\", sans-serif;\n  --gutter: clamp(1.25rem, 4.5vw, 4rem);\n  --max: 76rem;\n  --space-section: clamp(3rem, 5.5vw, 5rem);\n  --space-column: clamp(2rem, 5vw, 5rem);\n  --ease-out: cubic-bezier(.16, 1, .3, 1);\n  --motion-feedback: 180ms;\nfont-family:var(--font-body);line-height:1.65;background:var(--paper);color:var(--ink);padding:1.5rem;}.ds-preview h3,.ds-preview h4{font-family:var(--font-display);font-weight:600;letter-spacing:-.025em;margin-top:0}.ds-preview p{line-height:1.65}.ds-preview a{color:var(--accent);text-underline-offset:.3em}.ds-preview a:focus-visible,.ds-preview button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}/* Section composition follows the content: brief introduction, featured work,\r\n   vertical experience, compact technology groups and parallel education. */\r\n.ds-about-section { padding-block: clamp(2.5rem, 4vw, 3.5rem); }\r\n.ds-about-section h2 { font-size: clamp(1.7rem, 2.5vw, 2.25rem); margin-bottom: 1rem; }\r\n.ds-about-copy { max-width: 68ch; color: var(--muted); font-size: clamp(1.1rem, 1.5vw, 1.25rem); margin-bottom: 0; }\r\n.ds-projects { background: var(--color-surface); }\r\n.ds-projects > .ds-container > h2 { margin-bottom: 2rem; }\r\n.ds-featured-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 2rem; align-items: start; }\r\n.ds-featured-copy h3 { font-size: clamp(2rem, 3.4vw, 2.75rem); margin-bottom: .6rem; }\r\n.ds-featured-copy h4 { font-size: 1.25rem; line-height: 1.4; margin-bottom: 1.25rem; max-width: none; }\r\n.ds-featured-copy > p { color: var(--muted); }\r\n.ds-project-meta { margin-bottom: 1.25rem; }\r\n.ds-project-meta p, .ds-project-context, .ds-project-period { color: var(--muted); font-size: .85rem; }\r\n.ds-project-meta p { margin-bottom: .5rem; }\r\n.ds-project-state::before { content: \"\"; display: inline-block; width: .35rem; height: .35rem; border-radius: 50%; background: var(--accent); margin-right: .5rem; vertical-align: middle; }\r\n.ds-tech-list { list-style: none; padding: 0; margin: 1.25rem 0; display: flex; gap: .4rem 1rem; flex-wrap: wrap; color: var(--ink); font-size: .85rem; }\r\n.ds-tech-list li { padding-block: .15rem; border: 0; }\r\n.ds-project-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }\r\n.ds-project-contributions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }\r\n.ds-project-contributions h4 { font-size: 1.1rem; line-height: 1.35; margin-bottom: .6rem; max-width: none; }\r\n.ds-project-contributions p { color: var(--muted); font-size: .925rem; margin-bottom: 0; }\r\n.ds-compact-project, .ds-research-project { border-top: 1px solid var(--rule); padding-top: 1.75rem; margin-top: 2rem; }\r\n.ds-compact-project-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 2rem; justify-content: space-between; }\r\n.ds-compact-project h3, .ds-research-project h3 { margin-bottom: .5rem; }\r\n.ds-compact-project > p:not(.ds-project-context), .ds-research-project > p { max-width: 68ch; color: var(--muted); }\r\n.ds-compact-project .ds-project-context, .ds-research-project .ds-project-context { margin-bottom: 1rem; }\r\n.ds-research-project > p:last-child { margin-bottom: 0; }\r\n\r\n.ds-experience-section > h2 { margin-bottom: 1.75rem; }\r\n.ds-experience-heading { display: flex; align-items: baseline; gap: 1rem 2rem; flex-wrap: wrap; justify-content: space-between; padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule); }\r\n.ds-experience-heading h3 { font-size: clamp(1.75rem, 3vw, 2.4rem); margin-bottom: .5rem; }\r\n.ds-experience-role, .ds-experience-dates { margin-bottom: 0; color: var(--muted); font-size: .925rem; }\r\n.ds-experience-intro { color: var(--muted); margin-top: 1.25rem; margin-bottom: 1.5rem; }\r\n.ds-experience-contributions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; }\r\n.ds-experience-contributions h4 { font-size: 1.15rem; max-width: none; margin-bottom: .5rem; }\r\n.ds-experience-contributions p { color: var(--muted); margin-bottom: 0; max-width: 68ch; }\r\n.ds-honest-note { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 1.5rem; max-width: 70ch; margin-bottom: 0; }\r\n\r\n.ds-technology-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 3rem; }\r\n.ds-technology-group { padding-top: 1.25rem; border-top: 1px solid var(--rule); }\r\n.ds-technology-group h3 { font-size: 1.3rem; margin-bottom: 1rem; }\r\n.ds-technology-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }\r\n.ds-technology-group li { display: grid; gap: .25rem; }\r\n.ds-technology-group li > span { max-width: 68ch; font-size: .95rem; color: var(--ink); }\r\n.ds-technology-group small { color: var(--muted); font-size: .8rem; }\r\n\r\n.ds-education { background: var(--color-surface); }\r\n.ds-education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }\r\n.ds-education-grid article + article { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }\r\n.ds-education-grid h3 { font-size: 1.3rem; line-height: 1.35; margin-bottom: .6rem; }\r\n.ds-education-grid p { color: var(--muted); margin-bottom: .5rem; font-size: .925rem; }\r\n\r\n.ds-contact { border-bottom: 1px solid var(--rule); }\r\n.ds-contact-layout { display: grid; gap: 1.25rem; }\r\n.ds-contact-intro h2 { margin-bottom: 1rem; }\r\n.ds-contact-intro p { color: var(--muted); margin-bottom: .6rem; }\r\n.ds-contact-intro .ds-lead { color: var(--ink); }\r\n.ds-contact-body { max-width: 68ch; }\r\n.ds-email-row { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem 1.25rem; }\r\n.ds-email { font-size: clamp(1.05rem, 2.2vw, 1.6rem); overflow-wrap: anywhere; margin: 0; min-width: 0; }\r\n.ds-copy-button:disabled { opacity: .6; cursor: wait; }\r\n#copy-status { color: var(--muted); font-size: .9rem; min-height: 1.5rem; margin-block: .5rem; max-width: 65ch; }\r\n.ds-channels { display: flex; flex-wrap: wrap; gap: 1.5rem; }\r\n\r\n@media (max-width: 63.999rem) {\r\n  .ds-featured-grid { grid-template-columns: 1fr; gap: 1.75rem; }\r\n  .ds-featured-copy > p { max-width: 68ch; }\r\n}\r\n@media (max-width: 47.999rem) {\r\n  .ds-project-contributions, .ds-technology-grid, .ds-education-grid { grid-template-columns: 1fr; gap: 1.5rem; }\r\n  .ds-featured-copy h3 { font-size: 2rem; }\r\n  .ds-compact-project-heading { display: block; }\r\n  .ds-compact-project-heading .ds-project-period { margin-bottom: .75rem; }\r\n  .ds-project-contributions { gap: 1.25rem; }\r\n  .ds-education-grid { gap: 2rem; }\r\n  .ds-experience-heading { gap: .75rem; }\r\n  .ds-experience-contributions { grid-template-columns: 1fr; gap: 1.25rem; }\r\n  .ds-email-row { gap: .75rem; }\r\n}\r\n\r\n.ds-ezpark-contributions { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 2rem; margin: 1.25rem 0; }\r\n.ds-ezpark-contributions h4 { font-size: 1.1rem; margin-bottom: .5rem; }\r\n.ds-ezpark-contributions p { color: var(--muted); font-size: .925rem; margin-bottom: 0; }\r\n@media (max-width: 47.999rem) {\r\n .ds-ezpark-contributions { grid-template-columns: 1fr; gap: 1rem; }\r\n}\r\n",
+      "html": "<div class=\"ds-preview\"><section class=\"ds-contact-layout\"><div class=\"ds-contact-intro\"><h3>Hablemos</h3><p>Oportunidades laborales y proyectos freelance.</p></div><div class=\"ds-contact-body\"><div class=\"ds-email-row\"><a class=\"ds-email\" href=\"mailto:amnerlevi20@gmail.com\">amnerlevi20@gmail.com</a></div><p class=\"ds-contact-status\" role=\"status\" aria-live=\"polite\"></p><div class=\"ds-channels\"><a href=\"https://linkedin.com/in/amnerls\">LinkedIn</a><a href=\"https://github.com/AmnerL\">GitHub</a></div></div></section></div>",
+      "kind": "custom"
+    }
+  ],
+  "narrative": {
+    "keyCharacteristics": [
+      "Negro cálido y carbón como base.",
+      "Títulos blancos cálidos y detalles ámbar.",
+      "Presentación editorial con profundidad técnica conceptual.",
+      "Acciones junto a la presentación y credenciales discretas.",
+      "Movimiento breve y progresivo, composición estática accesible."
+    ],
+    "dos": [
+      "Do usa exclusivamente la paleta negra, cálida y ámbar documentada.",
+      "Do mantiene texto negro sobre botones ámbar y títulos blancos cálidos.",
+      "Do sitúa acciones junto a la presentación y credenciales con peso discreto.",
+      "Do conserva la ilustración y el contenido visibles sin animación.",
+      "Do respeta teclado, foco visible y movimiento reducido."
+    ],
+    "rules": [
+      {
+        "section": "colors",
+        "name": "The Amber Rule",
+        "body": "Usa ámbar para acciones y detalles; conserva titulares blancos cálidos y evita grandes bandas ámbar."
+      },
+      {
+        "section": "elevation",
+        "name": "The Purposeful Depth Rule",
+        "body": "Reserva la profundidad para la ilustración conceptual y el diálogo; conserva filas de contenido abiertas y sobrias."
+      }
+    ],
+    "donts": [
+      "Don't introduce grandes bandas ámbar ni colores alternativos.",
+      "Don't convierte los proyectos en tarjetas con sombras decorativas.",
+      "Don't añade movimiento continuo ni interacción de separación en móvil.",
+      "Don't presenta la ilustración conceptual como una captura de producto."
+    ],
+    "overview": "Un fondo negro cálido y superficies de carbón sostienen una presentación editorial de software. Los títulos blancos cálidos tienen protagonismo; el ámbar señala acciones, detalles y conexiones técnicas con moderación.\n\nLa composición combina presentación textual con una ilustración conceptual de capas en perspectiva. El movimiento acompaña la entrada y la exploración con mouse; en móvil y con movimiento reducido, la composición permanece estática. El contenido y la navegación conservan acceso sin JavaScript.",
+    "northStar": "El dossier de software en negro y ámbar"
+  }
+}
